@@ -252,6 +252,13 @@ export default function Game() {
         </div>
       </header>
 
+      <section className="panel mystery" aria-label="The mystery">
+        <h3 className="ph">The mystery</h3>
+        <p className="premise">{house.premise}</p>
+        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper or peek at a hint.</p>
+        <button className="btn soft" onClick={restart}>Start this house over</button>
+      </section>
+
       <nav className="doors" aria-label="Rooms">
         {house.rooms.map((r, i) => {
           const done = roomSolved(i), here = i === g.room && !g.won;
@@ -266,13 +273,6 @@ export default function Game() {
           );
         })}
       </nav>
-
-      <section className="panel mystery" aria-label="The mystery">
-        <h3 className="ph">The mystery</h3>
-        <p className="premise">{house.premise}</p>
-        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper or peek at a hint.</p>
-        <button className="btn soft" onClick={restart}>Start this house over</button>
-      </section>
 
       <section className="conjure" aria-label="Make a new house">
         <div className="field">
