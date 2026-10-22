@@ -12,7 +12,7 @@
 
 import type Anthropic from "@anthropic-ai/sdk";
 import { codeCheckHouse, validatorIssues, type Issue, type Verdict } from "./checks.ts";
-import { CALL_LIMITS, LIMITS, MODELS, record, reserveExtra } from "./cost.ts";
+import { CALL_LIMITS, LIMITS, MODELS, noThinking, record, reserveExtra } from "./cost.ts";
 import { cleanHouse, isCorrect, norm, validateHouse, type House, type Puzzle } from "./house.ts";
 import {
   HOUSE_TOOL, makerTask, REPAIR_TOOL, repairTask, SOLVER_TOOL, solverTask,
@@ -43,14 +43,6 @@ export type BuildResult =
   | { ok: false; problems: string[]; report: BuildReport };
 
 const MAX_PUZZLES_TO_REPAIR = 6; // more than half broken = regenerate, not repair
-
-/**
- * Sonnet 5.5 thinks by default, and thinking tokens count toward max_tokens, which cut houses off mid-write.
- * "between_tools" is Sonnet 5.5's way to turn thinking off (it rejects "disabled"); the code checks, AI tester
- * and repair catch wrong puzzles instead. Our SDK version predates this setting, hence the cast.
- */
-const noThinking = (model: string) =>
-  model === "claude-sonnet-5-5" ? ({ type: "between_tools" } as unknown as Anthropic.ThinkingConfigParam) : undefined;
 const pid = (r: number, p: number) => `r${r + 1}p${p + 1}`;
 
 function toolInput(msg: Anthropic.Message, name: string): unknown {
@@ -112,6 +104,7 @@ export async function buildHouse(ai: Claude, opts: { age: AgeLevel; idea: string
         system: SYSTEM_SOLVER,
         tools: [SOLVER_TOOL],
         tool_choice: { type: "tool", name: SOLVER_TOOL.name },
+        thinking: noThinking(MODELS.solver),
         messages: [{ role: "user", content: solverTask(house) }],
       });
       answers = ((toolInput(msg, SOLVER_TOOL.name) as { answers?: typeof answers })?.answers ?? []).filter(Boolean);

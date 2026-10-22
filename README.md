@@ -146,7 +146,8 @@ The AI tester (`SYSTEM_SOLVER`) and repair (`SYSTEM_REPAIR`) prompts are also in
   - no unsafe words,
   - not cut off at `max_tokens`.
 - A house that fails any check is thrown away.
-- Helper replies are scanned. Any answer gets redacted, unsafe replies are replaced, and long replies are trimmed.
+- Helper replies are scanned. Any answer gets redacted, unsafe replies are replaced, and long replies are trimmed. A reply that ran out of tokens is cut back to its last complete sentence, so players never see half a sentence.
+- Thinking is turned off on every call (`noThinking()` in `lib/cost.ts`). The 5.5 models think by default, and thinking tokens count toward `max_tokens`: the helper's 120-token replies were sometimes cut off mid-word ("put your finger on the G") or came back empty.
 
 **Errors:**
 - **Written-hint backup:** if the helper can't answer (timeout, AI busy, cost cap hit, no API key, no internet), the player still gets help: the room's written hint for the next unsolved puzzle, taking turns through them. Every house has a hint per puzzle for this. Blocked questions (like "tell me the answer") never get one.

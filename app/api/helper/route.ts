@@ -2,7 +2,7 @@
 // The model is never sent the answers or hints; the server uses them only to redact the reply.
 
 import { anthropic, aiError, json, noKey, visitorId } from "@/lib/ai.ts";
-import { CALL_LIMITS, LIMITS, MODELS, record, reserve, snapshot } from "@/lib/cost.ts";
+import { CALL_LIMITS, LIMITS, MODELS, noThinking, record, reserve, snapshot } from "@/lib/cost.ts";
 import { checkInput, cleanInput, guardHelperReply, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { cleanRoom, type Room } from "@/lib/house.ts";
 import { helperContext, SYSTEM_HELPER } from "@/lib/prompts.ts";
@@ -51,16 +51,21 @@ export async function POST(req: Request) {
         model: MODELS.helper,
         max_tokens: LIMITS.helperMaxTokens,
         system: SYSTEM_HELPER,
+        thinking: noThinking(MODELS.helper), // thinking could use up the tiny token limit and cut the reply off
         messages: [{ role: "user", content: helperContext(room, solved, question) }],
       },
       CALL_LIMITS.helper, // short timeout: a slow hint gets a spooky "sorry", not a long wait
     );
     const call = record("helper", MODELS.helper, msg.usage);
-    const text = msg.content.map((b) => (b.type === "text" ? b.text : "")).join(" ");
+    let text = msg.content.map((b) => (b.type === "text" ? b.text : "")).join(" ");
+    // A reply that hit max_tokens stops mid-word; keep only its complete sentences.
+    const cutOff = msg.stop_reason === "max_tokens";
+    if (cutOff) text = text.replace(/[^.!?]*$/, "");
 
     // 4. Output guardrail.
     const guarded = guardHelperReply(text, room);
-    return json({ ok: true, reply: guarded.text, flag: guarded.flag, call, usage: snapshot() });
+    const flag = guarded.flag ?? (cutOff ? "reply ran out of room, so the unfinished sentence was removed" : null);
+    return json({ ok: true, reply: guarded.text, flag, call, usage: snapshot() });
   } catch (e) {
     return aiError(e);
   }

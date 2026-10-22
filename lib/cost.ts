@@ -55,6 +55,18 @@ export const CALL_LIMITS = {
   repair: { timeout: 45_000, maxRetries: 0 },
 };
 
+/**
+ * Turns thinking off. The 5.5 models think by default, and thinking tokens count toward max_tokens, so a
+ * helper reply could stop mid-word ("put your finger on the G") and a house could be cut off. Each model has
+ * its own off switch: Sonnet 5.5 rejects "disabled" and uses "between_tools"; Haiku 5.5 takes "disabled".
+ * Our SDK version predates "between_tools", hence the cast.
+ */
+export function noThinking(model: string): Anthropic.ThinkingConfigParam | undefined {
+  if (model === "claude-sonnet-5-5") return { type: "between_tools" } as unknown as Anthropic.ThinkingConfigParam;
+  if (model === "claude-haiku-5-5") return { type: "disabled" };
+  return undefined;
+}
+
 type Kind = "house" | "helper";
 type CallKind = Kind | "solver" | "repair";
 interface Ledger {
