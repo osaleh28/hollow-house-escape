@@ -42,6 +42,19 @@ export const LIMITS = {
   repairInputEstimate: 6000,
 };
 
+/**
+ * Per-call time limits, so players never wait long. Each worst case (every attempt timing out, plus backoff)
+ * stays under the route's maxDuration, so our spooky message is always sent before the host cuts the function off.
+ *   helper: 8 s × 2 tries ≈ 17 s                                   (route maxDuration 30 s)
+ *   house:  75 + 20 + 45 + 20 s ≈ 160 s for generate, solve, repair, re-solve   (route maxDuration 300 s)
+ */
+export const CALL_LIMITS = {
+  helper: { timeout: 8_000, maxRetries: 1 },
+  house: { timeout: 75_000, maxRetries: 0 },
+  solver: { timeout: 20_000, maxRetries: 0 },
+  repair: { timeout: 45_000, maxRetries: 0 },
+};
+
 type Kind = "house" | "helper";
 type CallKind = Kind | "solver" | "repair";
 interface Ledger {

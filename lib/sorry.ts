@@ -1,0 +1,33 @@
+// SPOOKY SORRY MESSAGES — what players see when the AI fails or is slow.
+// Shared by the server (lib/ai.ts) and the browser (components/Game.tsx), so every failure sounds like the game.
+
+const SORRY = {
+  timeout: [
+    "The ghosts got lost in the fog and took too long. Try again!",
+    "Our bat messenger flew the long way home. Try again!",
+  ],
+  busy: [
+    "The haunted house is packed with monsters right now. Try again in a moment!",
+    "Every broomstick is taken! Try again in a moment.",
+  ],
+  rate_limited: [
+    "The witches need a quick broom break. Try again in a minute!",
+    "The zombies are taking a snack break. Try again in a minute!",
+  ],
+  auth: ["The magic key doesn't fit the spooky door! A grown-up needs to check the server settings."],
+  offline: [
+    "The candles flickered and we lost the spell. Check your internet and try again!",
+    "A spooky wind blew the connection away. Check your internet and try again!",
+  ],
+  error: [
+    "Oops! A black cat knocked over the cauldron. Try again!",
+    "Boo! Something spooky went wrong. Try again!",
+  ],
+};
+
+export type SorryCode = keyof typeof SORRY;
+
+export function sorry(code: SorryCode) {
+  const lines = SORRY[code];
+  return lines[Math.floor(Math.random() * lines.length)];
+}

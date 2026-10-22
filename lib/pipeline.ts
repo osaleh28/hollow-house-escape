@@ -12,7 +12,7 @@
 
 import type Anthropic from "@anthropic-ai/sdk";
 import { codeCheckHouse, validatorIssues, type Issue, type Verdict } from "./checks.ts";
-import { LIMITS, MODELS, record, reserveExtra } from "./cost.ts";
+import { CALL_LIMITS, LIMITS, MODELS, record, reserveExtra } from "./cost.ts";
 import { cleanHouse, isCorrect, norm, validateHouse, type House, type Puzzle } from "./house.ts";
 import {
   HOUSE_TOOL, makerTask, REPAIR_TOOL, repairTask, SOLVER_TOOL, solverTask,
@@ -22,7 +22,7 @@ import { planHouse, type RoomPlan } from "./themes.ts";
 
 /** The one method we use from the Anthropic client (lets the eval swap in a mock). */
 export interface Claude {
-  messages: { create(params: Anthropic.MessageCreateParamsNonStreaming): Promise<Anthropic.Message> };
+  messages: { create(params: Anthropic.MessageCreateParamsNonStreaming, options?: Anthropic.RequestOptions): Promise<Anthropic.Message> };
 }
 
 export type Step = "house" | "solver" | "repair";
@@ -83,7 +83,7 @@ export async function buildHouse(ai: Claude, opts: { age: AgeLevel; idea: string
 
   async function call(step: Step, model: string, params: Anthropic.MessageCreateParamsNonStreaming) {
     const start = Date.now();
-    const msg = await ai.messages.create(params);
+    const msg = await ai.messages.create(params, CALL_LIMITS[step]);
     calls.push({ step, model, ...record(step, model, msg.usage), ms: Date.now() - start });
     return msg;
   }

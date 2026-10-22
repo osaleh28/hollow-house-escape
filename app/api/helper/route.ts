@@ -2,7 +2,7 @@
 // The model is never sent the answers or hints; the server uses them only to redact the reply.
 
 import { anthropic, aiError, json, noKey, visitorId } from "@/lib/ai.ts";
-import { LIMITS, MODELS, record, reserve, snapshot } from "@/lib/cost.ts";
+import { CALL_LIMITS, LIMITS, MODELS, record, reserve, snapshot } from "@/lib/cost.ts";
 import { checkInput, cleanInput, guardHelperReply, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { cleanRoom, type Room } from "@/lib/house.ts";
 import { helperContext, SYSTEM_HELPER } from "@/lib/prompts.ts";
@@ -46,12 +46,15 @@ export async function POST(req: Request) {
 
   // 3. The AI call — cheap, fast model and a tiny max_tokens.
   try {
-    const msg = await ai.messages.create({
-      model: MODELS.helper,
-      max_tokens: LIMITS.helperMaxTokens,
-      system: SYSTEM_HELPER,
-      messages: [{ role: "user", content: helperContext(room, solved, question) }],
-    });
+    const msg = await ai.messages.create(
+      {
+        model: MODELS.helper,
+        max_tokens: LIMITS.helperMaxTokens,
+        system: SYSTEM_HELPER,
+        messages: [{ role: "user", content: helperContext(room, solved, question) }],
+      },
+      CALL_LIMITS.helper, // short timeout: a slow hint gets a spooky "sorry", not a long wait
+    );
     const call = record("helper", MODELS.helper, msg.usage);
     const text = msg.content.map((b) => (b.type === "text" ? b.text : "")).join(" ");
 

@@ -7,6 +7,13 @@ import { isCorrect, SAMPLE_HOUSE, type House, type Puzzle } from "@/lib/house.ts
 import { THEME_IDS, THEMES, type Theme } from "@/lib/themes.ts";
 import { SYSTEM_HELPER, SYSTEM_MAKER, type AgeLevel } from "@/lib/prompts.ts";
 import type { UsageSnapshot } from "@/lib/cost.ts";
+import { sorry } from "@/lib/sorry.ts";
+
+const HELPER_WAIT_MS = 20_000; // the browser gives up on a hint after this, even if the server hasn't answered
+
+/** Reads a JSON reply; if the host sent an error page instead (e.g. a 504), turns it into a spooky sorry. */
+const readReply = (res: Response) =>
+  res.json().catch(() => ({ ok: false, message: sorry(res.status === 504 ? "timeout" : "error") }));
 
 type GameState = {
   room: number;
@@ -161,7 +168,7 @@ export default function Game() {
         body: JSON.stringify({ age, idea: cleanIdea }),
         signal: ctl.signal,
       });
-      const d = await res.json();
+      const d = await readReply(res);
       if (d.usage) setUsage(d.usage);
       addCall("houseCalls", d.call);
       if (d.ok) {
@@ -184,10 +191,10 @@ export default function Game() {
         addLog(`Server blocked a house idea: it ${d.reason}.`, "block");
       }
       if (d.code === "capped") addLog(`Cost cap stopped a new house (${d.reason}).`, "block");
-      setNote({ text: d.message || "Something went wrong. Try again!", err: true });
+      setNote({ text: d.message || sorry("error"), err: true });
     } catch (e) {
       setModal(null);
-      if ((e as Error).name !== "AbortError") setNote({ text: "Couldn't reach the game server. Check your connection and try again.", err: true });
+      if ((e as Error).name !== "AbortError") setNote({ text: sorry("offline"), err: true });
     } finally {
       setBusy(false);
       abortRef.current = null;
@@ -226,8 +233,9 @@ export default function Game() {
           question: q,
           askedInRoom: askedHere,
         }),
+        signal: AbortSignal.timeout(HELPER_WAIT_MS),
       });
-      const d = await res.json();
+      const d = await readReply(res);
       if (d.usage) setUsage(d.usage);
       addCall("helperCalls", d.call);
       if (d.ok) {
@@ -237,10 +245,10 @@ export default function Game() {
         if (!d.blocked) setG((s) => ({ ...s, asked: { ...s.asked, [ri]: (s.asked[ri] ?? 0) + 1 } }));
       } else {
         if (d.code === "capped") addLog(`Cost cap stopped a helper question (${d.reason || "room limit"}).`, "block");
-        push("sys", d.message || "Your helper drifted off. Ask again!");
+        push("sys", d.message || sorry("error"));
       }
-    } catch {
-      push("sys", "Couldn't reach the game server. Try again!");
+    } catch (e) {
+      push("sys", sorry((e as Error).name === "TimeoutError" ? "timeout" : "offline"));
     } finally {
       setAsking(false);
     }
