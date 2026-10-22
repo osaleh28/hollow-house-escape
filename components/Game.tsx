@@ -17,7 +17,7 @@ const readReply = (res: Response) =>
 type GameState = {
   room: number;
   candy: number;
-  solved: Record<string, boolean>;
+  solved: Record<string, number>; // candies each solved puzzle earned (always 1 or more, so it also means "solved")
   asked: Record<number, number>;
   backups: Record<number, number>; // written hints shown per room when the AI was unavailable
   won: boolean;
@@ -28,6 +28,8 @@ type Modal =
   | { kind: "win"; text: string };
 
 const HELPER_PER_ROOM = 5;
+const FIRST_TRY_CANDY = 3; // candies for a correct first guess
+const LATER_CANDY = 1; // candies after a wrong guess
 const kicker = (i: number, t: Theme) => `Room ${i + 1} · ${THEMES[t]?.label ?? "Spooky"} room`;
 /** Sets the room accent color for a monster. */
 const tone = (t: Theme) => ({ "--room": THEMES[t]?.color ?? "#ff9a3c" }) as React.CSSProperties;
@@ -94,9 +96,11 @@ export default function Game() {
     (kind === "block" ? console.warn : console.info)(`[guardrails] ${text}`);
 
   /* ---------- game actions ---------- */
-  function solve(p: number) {
+  /** Solving on the first try earns 3 candies; after a wrong guess, 1. Asking the helper is always free. */
+  function solve(p: number, firstTry: boolean) {
     const k = key(g.room, p);
-    setG((s) => ({ ...s, solved: { ...s.solved, [k]: true }, candy: s.candy + 3 }));
+    const earned = firstTry ? FIRST_TRY_CANDY : LATER_CANDY;
+    setG((s) => ({ ...s, solved: { ...s.solved, [k]: earned }, candy: s.candy + earned }));
     setCandyPop((n) => n + 1);
   }
   function openDoor() {
@@ -217,7 +221,7 @@ export default function Game() {
           <h1>{house.title}</h1>
         </div>
         <div className="meters">
-          <div className="candy" title="Solve a puzzle for 3 candies">
+          <div className="candy" title="3 candies for solving a puzzle on the first try, 1 after a wrong guess">
             <CandyIcon />
             <b key={candyPop} className={candyPop ? "pop" : ""}>{g.candy}</b>
             <span>candies found</span>
@@ -228,7 +232,7 @@ export default function Game() {
       <section className="panel mystery" aria-label="The mystery">
         <h3 className="ph">The mystery</h3>
         <p className="premise">{house.premise}</p>
-        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Every room has a friendly monster helper you can chat with for a nudge.</p>
+        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Get it right on the first try for 3 candies, or 1 after a wrong guess. Stuck? Every room has a friendly monster helper you can chat with for a nudge.</p>
         <div className="row">
           <button className="btn" onClick={newHouse}>New house</button>
           <button className="btn soft" onClick={restart}>Start this house over</button>
@@ -279,8 +283,8 @@ export default function Game() {
                 id={`ans-${g.room}-${p}`}
                 n={p + 1}
                 puzzle={z}
-                solved={!!g.solved[key(g.room, p)]}
-                onSolve={() => solve(p)}
+                earned={g.solved[key(g.room, p)] ?? 0}
+                onSolve={(firstTry) => solve(p, firstTry)}
               />
             ))}
           </div>
@@ -348,8 +352,9 @@ export default function Game() {
 
 const NICE = ["Not quite! Try again.", "So close! Read the clue one more time.", "Hmm, not that one. You've got this!", "Keep trying! Your helper can give you a nudge."];
 
-function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: boolean; onSolve: () => void }) {
-  const { id, n, puzzle: z, solved, onSolve } = props;
+function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; earned: number; onSolve: (firstTry: boolean) => void }) {
+  const { id, n, puzzle: z, earned, onSolve } = props;
+  const solved = earned > 0;
   const [value, setValue] = useState("");
   const [msg, setMsg] = useState("");
   const [wig, setWig] = useState(0);
@@ -357,7 +362,7 @@ function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: bool
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!value.trim()) return;
-    if (isCorrect(z, value)) onSolve();
+    if (isCorrect(z, value)) onSolve(wig === 0); // wig counts wrong guesses on this puzzle
     else {
       setMsg(NICE[Math.floor(Math.random() * NICE.length)]);
       setWig((w) => w + 1);
@@ -374,7 +379,10 @@ function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: bool
       <p className="clue">{z.clue}</p>
       <p className="q">{z.question}</p>
       {solved ? (
-        <p className="answer">✓ {z.answer} · +3 candy</p>
+        <p className="answer">
+          ✓ {z.answer} · +{earned} {earned === 1 ? "candy" : "candies"}
+          {earned === FIRST_TRY_CANDY ? " · first try! 🎉" : ""}
+        </p>
       ) : (
         <>
           <form onSubmit={submit}>
