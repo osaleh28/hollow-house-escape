@@ -6,7 +6,7 @@ All of Pumpkin Hollow's candy has vanished, and the trail leads to the old house
 
 - **The AI feature, "Ask your helper":** each room's character (Puff the Ghost, Midnight the Cat, Gus the Zombie…) gives gentle hints in chat.
 - **A different house every visit:** each page load picks a house from the library that this browser hasn't played yet, and the **New house** button picks another. Once every house has been played, the list starts over.
-- The puzzles, hints and doors all work with no API key at all.
+- The puzzles and doors work with no API key at all. There are no built-in hint buttons: the helper is how players get help.
 
 ## The house library (`data/houses.json`)
 
@@ -149,6 +149,7 @@ The AI tester (`SYSTEM_SOLVER`) and repair (`SYSTEM_REPAIR`) prompts are also in
 - Helper replies are scanned. Any answer gets redacted, unsafe replies are replaced, and long replies are trimmed.
 
 **Errors:**
+- **Written-hint backup:** if the helper can't answer (timeout, AI busy, cost cap hit, no API key, no internet), the player still gets help: the room's written hint for the next unsolved puzzle, taking turns through them. Every house has a hint per puzzle for this. Blocked questions (like "tell me the answer") never get one.
 - Every failure gets a Halloween-themed "sorry" (`lib/sorry.ts`), e.g. *"The ghosts got lost in the fog and took too long. Try again!"* Raw errors never reach the player.
 - **Short waits** (`CALL_LIMITS` in `lib/cost.ts`): a helper hint gets 8 s per try with 1 retry (about 17 s at most), and the browser gives up after 20 s. Each house step has its own limit with no retries, and there's a Stop button.
 - Every worst-case wait is shorter than the route's `maxDuration`, so the spooky message is always sent before the host cuts the request off. If the host still sends an error page, the browser turns it into a spooky message too.

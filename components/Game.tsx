@@ -18,8 +18,8 @@ type GameState = {
   room: number;
   candy: number;
   solved: Record<string, boolean>;
-  hinted: Record<string, boolean>;
   asked: Record<number, number>;
+  backups: Record<number, number>; // written hints shown per room when the AI was unavailable
   won: boolean;
 };
 type ChatMsg = { room: number; who: "you" | "helper" | "sys"; text: string };
@@ -31,7 +31,7 @@ const HELPER_PER_ROOM = 5;
 const kicker = (i: number, t: Theme) => `Room ${i + 1} · ${THEMES[t]?.label ?? "Spooky"} room`;
 /** Sets the room accent color for a monster. */
 const tone = (t: Theme) => ({ "--room": THEMES[t]?.color ?? "#ff9a3c" }) as React.CSSProperties;
-const fresh = (): GameState => ({ room: 0, candy: 0, solved: {}, hinted: {}, asked: {}, won: false });
+const fresh = (): GameState => ({ room: 0, candy: 0, solved: {}, asked: {}, backups: {}, won: false });
 const key = (r: number, p: number) => `${r}:${p}`;
 const PLAYED_KEY = "hollow-house-played-v1";
 
@@ -94,10 +94,9 @@ export default function Game() {
   /* ---------- game actions ---------- */
   function solve(p: number) {
     const k = key(g.room, p);
-    setG((s) => ({ ...s, solved: { ...s.solved, [k]: true }, candy: s.candy + (s.hinted[k] ? 1 : 3) }));
+    setG((s) => ({ ...s, solved: { ...s.solved, [k]: true }, candy: s.candy + 3 }));
     setCandyPop((n) => n + 1);
   }
-  const hint = (p: number) => setG((s) => ({ ...s, hinted: { ...s.hinted, [key(s.room, p)]: true } }));
   function openDoor() {
     if (!roomSolved(g.room)) return;
     if (g.room < 2) setModal({ kind: "unlock", theme: room.theme, text: room.unlock });
@@ -123,6 +122,15 @@ export default function Game() {
   }
 
   /* ---------- AI: helper ---------- */
+  /** The written hint for the next unsolved puzzle in a room, taking turns through them. */
+  function backupHint(ri: number) {
+    const open = house.rooms[ri].puzzles.map((z, p) => ({ z, p })).filter(({ z, p }) => z.hint && !g.solved[key(ri, p)]);
+    if (!open.length) return null;
+    const { z, p } = open[(g.backups[ri] ?? 0) % open.length];
+    setG((s) => ({ ...s, backups: { ...s.backups, [ri]: (s.backups[ri] ?? 0) + 1 } }));
+    return `Here's a clue for Puzzle ${p + 1}, "${z.title}": ${z.hint}`;
+  }
+
   async function ask(e: React.FormEvent) {
     e.preventDefault();
     const q = cleanInput(question, INPUT_LIMITS.questionChars);
@@ -142,6 +150,16 @@ export default function Game() {
       push("sys", "Your helper is all out of hints for this room. You can do it!");
       return;
     }
+
+    /** Failsafe: when the AI can't answer, share the written hint for an unsolved puzzle instead. */
+    const fallback = (why: string, reason: string) => {
+      push("sys", why);
+      const hint = backupHint(ri);
+      if (hint) push("helper", hint);
+      addLog(`The helper AI couldn't answer (${reason}), so a written hint was shown instead.`, "ok");
+    };
+    if (!aiReady) return fallback("The helper's magic isn't switched on, so here's a written clue instead.", "not set up");
+
     setAsking(true);
     try {
       const res = await fetch("/api/helper", {
@@ -163,10 +181,11 @@ export default function Game() {
         if (!d.blocked) setG((s) => ({ ...s, asked: { ...s.asked, [ri]: (s.asked[ri] ?? 0) + 1 } }));
       } else {
         if (d.code === "capped") addLog(`Cost cap stopped a helper question (${d.reason || "room limit"}).`, "block");
-        push("sys", d.message || sorry("error"));
+        fallback(d.message || sorry("error"), d.code || "error");
       }
     } catch (e) {
-      push("sys", sorry((e as Error).name === "TimeoutError" ? "timeout" : "offline"));
+      const timedOut = (e as Error).name === "TimeoutError";
+      fallback(sorry(timedOut ? "timeout" : "offline"), timedOut ? "timeout" : "offline");
     } finally {
       setAsking(false);
     }
@@ -183,7 +202,7 @@ export default function Game() {
           <h1>{house.title}</h1>
         </div>
         <div className="meters">
-          <div className="candy" title="Solve a puzzle for 3 candies, or 1 if you used the hint">
+          <div className="candy" title="Solve a puzzle for 3 candies">
             <CandyIcon />
             <b key={candyPop} className={candyPop ? "pop" : ""}>{g.candy}</b>
             <span>candies found</span>
@@ -194,7 +213,7 @@ export default function Game() {
       <section className="panel mystery" aria-label="The mystery">
         <h3 className="ph">The mystery</h3>
         <p className="premise">{house.premise}</p>
-        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper or peek at a hint.</p>
+        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper for a nudge.</p>
         <div className="row">
           <button className="btn" onClick={newHouse}>New house</button>
           <button className="btn soft" onClick={restart}>Start this house over</button>
@@ -238,9 +257,7 @@ export default function Game() {
                 n={p + 1}
                 puzzle={z}
                 solved={!!g.solved[key(g.room, p)]}
-                hinted={!!g.hinted[key(g.room, p)]}
                 onSolve={() => solve(p)}
-                onHint={() => hint(p)}
               />
             ))}
           </div>
@@ -262,10 +279,10 @@ export default function Game() {
             </div>
             <form className="row" onSubmit={ask}>
               <input id="question" type="text" maxLength={INPUT_LIMITS.questionChars} autoComplete="off" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="I'm stuck on the riddle…" aria-label="Question for the helper" />
-              <button className="btn room" type="submit" disabled={asking || askedHere >= HELPER_PER_ROOM || !aiReady}>Ask</button>
+              <button className="btn room" type="submit" disabled={asking || askedHere >= HELPER_PER_ROOM}>Ask</button>
             </form>
             <p className="small">
-              {aiReady ? `${HELPER_PER_ROOM - askedHere} of ${HELPER_PER_ROOM} questions left in this room` : "The helper isn't set up on this server yet (missing API key). The puzzles and hints still work!"}
+              {aiReady ? `${HELPER_PER_ROOM - askedHere} of ${HELPER_PER_ROOM} questions left in this room` : "The helper's AI isn't set up on this server (missing API key), so it will share written clues instead."}
             </p>
           </aside>
         </div>
@@ -299,10 +316,10 @@ export default function Game() {
   );
 }
 
-const NICE = ["Not quite! Try again.", "So close! Read the clue one more time.", "Hmm, not that one. You've got this!", "Keep trying! Maybe peek at the hint?"];
+const NICE = ["Not quite! Try again.", "So close! Read the clue one more time.", "Hmm, not that one. You've got this!", "Keep trying! Your helper can give you a nudge."];
 
-function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: boolean; hinted: boolean; onSolve: () => void; onHint: () => void }) {
-  const { id, n, puzzle: z, solved, hinted, onSolve, onHint } = props;
+function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: boolean; onSolve: () => void }) {
+  const { id, n, puzzle: z, solved, onSolve } = props;
   const [value, setValue] = useState("");
   const [msg, setMsg] = useState("");
   const [wig, setWig] = useState(0);
@@ -327,7 +344,7 @@ function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: bool
       <p className="clue">{z.clue}</p>
       <p className="q">{z.question}</p>
       {solved ? (
-        <p className="answer">✓ {z.answer} · +{hinted ? 1 : 3} candy</p>
+        <p className="answer">✓ {z.answer} · +3 candy</p>
       ) : (
         <>
           <form onSubmit={submit}>
@@ -335,11 +352,6 @@ function PuzzleCard(props: { id: string; n: number; puzzle: Puzzle; solved: bool
             <button className="btn room" type="submit">Check</button>
           </form>
           <p className={`msg${msg ? " oops" : ""}`} aria-live="polite">{msg}</p>
-          {hinted ? (
-            <p className="hinttxt">Hint: {z.hint}</p>
-          ) : (
-            z.hint && <button type="button" className="linkbtn" onClick={onHint}>Show a hint (you&apos;ll get 1 candy instead of 3)</button>
-          )}
         </>
       )}
     </div>
