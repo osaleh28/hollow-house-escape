@@ -67,6 +67,15 @@ expect("chat history strips tags so nothing can break out of the chat block", !h
 expect("chat history caps line length", hist.every((m) => m.text.length <= 260));
 expect("chat history keeps only the last few lines", cleanHistory(Array.from({ length: 20 }, (_, i) => ({ who: "you", text: `q${i}` }))).length === 6);
 expect("chat history ignores junk", cleanHistory("nope").length === 0 && cleanHistory([null, 5]).length === 0);
+const pairsHouse = (clue: string) => {
+  const h = structuredClone(SAMPLE_HOUSE);
+  h.rooms[0].puzzles[0] = { type: "Matching pairs", title: "Pairs", clue, question: "Which item has no partner?", answer: "Hat", alternates: [], hint: "h" };
+  return h;
+};
+const pairsGiveaway = (clue: string) => validateHouse(pairsHouse(clue)).some((p) => p.includes("which one is left over"));
+expect("rejects a matching-pairs clue that names the leftover item", pairsGiveaway("Pairs: Cup and Saucer, Key and Lock. One item is left over with no partner: Hat."));
+expect("rejects a matching-pairs clue that calls the answer lonely", pairsGiveaway("Cup goes with Saucer. One lonely item has no partner: Hat."));
+expect("accepts a matching-pairs clue with one jumbled list", !pairsGiveaway("Out tumbled: a Sock, a Cup, a Hat, a Saucer, and another Sock."));
 const longClue = structuredClone(SAMPLE_HOUSE);
 longClue.rooms[0].puzzles[0].clue = "A long maze clue. ".repeat(40);
 expect("flags a clue too long to show whole (so it gets repaired, not cut off)", validateHouse(longClue).some((p) => p.startsWith("room 1 puzzle 1 clue is too long")));

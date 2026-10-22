@@ -48,7 +48,7 @@ export const TYPE_RULES: Record<string, string> = {
   "Secret code": "a code explained in the clue (e.g. A=1, B=2, ...) and an encoded word",
   "Maze directions": "short step-by-step directions through a named grid or maze; the answer is the place you end up, from a named list",
   "Sort it": "lists 4 items; asks which is the biggest/smallest/first etc.",
-  "Matching pairs": "lists pairs and one item with no partner; the answer is the item with no partner",
+  "Matching pairs": "lists every item in ONE jumbled list (items that go together in pairs, plus one item with no partner), so the player has to do the matching; never group the pairs or say which item is left over; the answer is the item with no partner",
   "What's missing": "a list in a familiar order (days, letters, numbers) with one item missing",
   "Picture code": "a symbol code shown in the clue (e.g. ☾=C, ★=A, ▲=T) and a row of symbols to decode",
   "Put in order": "lists steps out of order; asks which step comes first or last",

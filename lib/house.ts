@@ -103,6 +103,10 @@ export function validateHouse(h: unknown, plan?: RoomPlan[]): string[] {
         if (!norm(text).includes(a)) p.push(`${where} trivia answer isn't one of the choices`);
       } else if (LISTED_ANSWER_TYPES.has(type)) {
         if (!norm(text).includes(a)) p.push(`${where} answer isn't one of the listed items`);
+        // Listing the answer is fine, but saying which one it is ("no partner: Hat") leaves nothing to solve.
+        const word = String(z?.answer ?? "").trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        if (type === "Matching pairs" && word && new RegExp(`(no partner|left over|leftover|lonely|all alone)[^.]*\\b${word}\\b`, "i").test(text))
+          p.push(`${where} gives its answer away: list every item in one jumbled list instead of saying which one is left over`);
       } else if (!ANSWER_MAY_APPEAR_TYPES.has(type) && a.length >= 4 && /[a-z]/.test(a) && new RegExp(`\\b${a}\\b`, "i").test(text)) {
         p.push(`${where} gives its answer away`);
       }

@@ -29,14 +29,14 @@
           {
             "type": "Matching pairs",
             "title": "Tidy's Lost and Found",
-            "clue": "Tidy has sorted these into pairs: Left glove and Right glove, Key and Lock, Cup and Saucer. One more item is left over with no partner: Hat.",
+            "clue": "Tidy tipped the lost-and-found box onto the crypt floor, and out tumbled: a Sock, a Key, a Cup, a Left glove, a Lock, a Saucer, a Hat, a Right glove, and another Sock. Tidy wants to put every item next to the thing it belongs with.",
             "question": "Which item has no partner?",
             "answer": "Hat",
             "alternates": [
               "hat",
               "the hat"
             ],
-            "hint": "Look for the one thing that was not matched with anything."
+            "hint": "Pick up each item and look for the thing it goes with. The one left all alone is your answer."
           },
           {
             "type": "Odd one out",
@@ -1562,14 +1562,14 @@
           {
             "type": "Matching pairs",
             "title": "Sock and Button Sort",
-            "clue": "Tidy matches things that belong together: Key goes with Lock, Sock goes with Shoe, Pen goes with Paper. One lonely item has no partner: Button.",
+            "clue": "Tidy's treasure pile is all mixed up: a Shoe, a Pen, a Key, a Button, a Sock, a Paper, and a Lock. Tidy wants to put each thing next to the thing it goes with.",
             "question": "Which item has no partner?",
             "answer": "Button",
             "alternates": [
               "button",
               "Buttons"
             ],
-            "hint": "Three pairs are already matched, so look for the item that isn't in any pair."
+            "hint": "Look for each thing's buddy, like two things you would use together. One thing has no buddy at all."
           }
         ]
       },
