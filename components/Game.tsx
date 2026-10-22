@@ -220,13 +220,6 @@ export default function Game() {
           <div className="eyebrow">A Hollow House mystery</div>
           <h1>{house.title}</h1>
         </div>
-        <div className="meters">
-          <div className="candy" title="3 candies for solving a puzzle on the first try, 1 after a wrong guess">
-            <CandyIcon />
-            <b key={candyPop} className={candyPop ? "pop" : ""}>{g.candy}</b>
-            <span>candies found</span>
-          </div>
-        </div>
       </header>
 
       <section className="panel mystery" aria-label="The mystery">
@@ -238,6 +231,14 @@ export default function Game() {
           <button className="btn soft" onClick={restart}>Start this house over</button>
         </div>
       </section>
+
+      <div className="meters">
+        <div className="candy" title="3 candies for solving a puzzle on the first try, 1 after a wrong guess">
+          <CandyIcon />
+          <b key={candyPop} className={candyPop ? "pop" : ""}>{g.candy}</b>
+          <span>candies found</span>
+        </div>
+      </div>
 
       <nav className="doors" aria-label="Rooms">
         {house.rooms.map((r, i) => {
