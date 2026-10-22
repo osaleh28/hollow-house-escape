@@ -6,6 +6,7 @@ import { CALL_LIMITS, LIMITS, MODELS, noThinking, record, reserve, snapshot } fr
 import { checkInput, cleanHistory, cleanInput, guardHelperReply, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { cleanRoom, type Room } from "@/lib/house.ts";
 import { helperContext, SYSTEM_HELPER } from "@/lib/prompts.ts";
+import { sorry } from "@/lib/sorry.ts";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -36,7 +37,7 @@ export async function POST(req: Request) {
 
   // Per-room limit (the browser also enforces this; the server double-checks).
   if ((body.askedInRoom ?? 0) >= LIMITS.helperPerRoom)
-    return json({ ok: false, code: "capped", message: "Your helper is all out of hints for this room. You can do it!" }, 429);
+    return json({ ok: false, code: "capped", message: sorry("alone") }, 429);
 
   const ai = anthropic();
   if (!ai) return noKey();

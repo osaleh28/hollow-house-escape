@@ -19,6 +19,16 @@ const SORRY = {
     "The candles flickered and we lost the spell. Check your internet and try again!",
     "A spooky wind blew the connection away. Check your internet and try again!",
   ],
+  // The helper's goodbye when a room's questions run out.
+  alone: [
+    "Oh no, the candle just blew out and I'm fading into the fog… you're on your own now! I know you can do it. 👻",
+    "Oooh, the clock struck midnight and I must vanish! You're on your own in this room, brave one. Trust the clues!",
+    "Eek! A gust of wind is carrying me away… you're on your own now! Read each clue slowly. You've got this!",
+  ],
+  // The helper's goodbye when a player has used all their questions for the day.
+  alone_today: [
+    "Oh no, the moon is setting and I must sleep until tomorrow night… you're on your own now! I believe in you. 🌙",
+  ],
   error: [
     "Oops! A black cat knocked over the cauldron. Try again!",
     "Boo! Something spooky went wrong. Try again!",

@@ -11,6 +11,7 @@
 // production swap `store` for Redis / Vercel KV (same shape).
 
 import type Anthropic from "@anthropic-ai/sdk";
+import { sorry } from "./sorry.ts";
 
 /** USD per 1M tokens. From https://platform.claude.com/docs/en/about-claude/pricing */
 const PRICES: Record<string, { input: number; output: number }> = {
@@ -101,7 +102,7 @@ export function reserve(kind: Kind, visitor: string): Gate {
   if (kind === "house" && v.house >= LIMITS.housesPerVisitorPerDay)
     return { ok: false, reason: "visitor house limit", message: "That's all the new houses for today. Come back tomorrow, or play this one again!" };
   if (kind === "helper" && v.helper >= LIMITS.helperPerVisitorPerDay)
-    return { ok: false, reason: "visitor helper limit", message: "Your helper is all talked out for today. You can do it!" };
+    return { ok: false, reason: "visitor helper limit", message: sorry("alone_today") };
 
   const model = kind === "house" ? MODELS.house : MODELS.helper;
   const worstCase =

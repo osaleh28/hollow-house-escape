@@ -147,7 +147,7 @@ export default function Game() {
       return;
     }
     if (askedHere >= HELPER_PER_ROOM) {
-      push("sys", "Your helper is all out of hints for this room. You can do it!");
+      push("helper", sorry("alone"));
       return;
     }
 
@@ -183,7 +183,10 @@ export default function Game() {
         push("helper", d.reply);
         if (d.blocked) addLog(`Server blocked a helper question: it ${d.reason}.`, "block");
         if (d.flag) addLog(`Output check: ${d.flag}.`, "block");
-        if (!d.blocked) setG((s) => ({ ...s, asked: { ...s.asked, [ri]: (s.asked[ri] ?? 0) + 1 } }));
+        if (!d.blocked) {
+          setG((s) => ({ ...s, asked: { ...s.asked, [ri]: (s.asked[ri] ?? 0) + 1 } }));
+          if (askedHere + 1 >= HELPER_PER_ROOM) push("helper", sorry("alone")); // that was the last question
+        }
       } else {
         if (d.code === "capped") addLog(`Cost cap stopped a helper question (${d.reason || "room limit"}).`, "block");
         fallback(d.message || sorry("error"), d.code || "error");
@@ -287,7 +290,11 @@ export default function Game() {
               <button className="btn room" type="submit" disabled={asking || askedHere >= HELPER_PER_ROOM}>Ask</button>
             </form>
             <p className="small">
-              {aiReady ? `${HELPER_PER_ROOM - askedHere} of ${HELPER_PER_ROOM} questions left in this room` : "The helper's AI isn't set up on this server (missing API key), so it will share written clues instead."}
+              {!aiReady
+                ? "The helper's AI isn't set up on this server (missing API key), so it will share written clues instead."
+                : askedHere >= HELPER_PER_ROOM
+                  ? "👻 No questions left. You're on your own in this room!"
+                  : `${HELPER_PER_ROOM - askedHere} of ${HELPER_PER_ROOM} questions left in this room`}
             </p>
           </aside>
         </div>
