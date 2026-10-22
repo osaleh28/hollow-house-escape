@@ -228,7 +228,7 @@ export default function Game() {
       <section className="panel mystery" aria-label="The mystery">
         <h3 className="ph">The mystery</h3>
         <p className="premise">{house.premise}</p>
-        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper for a nudge.</p>
+        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Every room has a friendly monster helper you can chat with for a nudge.</p>
         <div className="row">
           <button className="btn" onClick={newHouse}>New house</button>
           <button className="btn soft" onClick={restart}>Start this house over</button>
@@ -258,9 +258,16 @@ export default function Game() {
               <div className="kicker">{kicker(g.room, room.theme)}</div>
               <h2>{room.name}</h2>
             </div>
-            <button className="btn soft ask-chip" onClick={goToHelper}>💬 Ask {helperName}</button>
           </div>
           <p className="desc">{room.description}</p>
+          <div className="helper-strip">
+            <p>
+              💬 <b>{room.helper.name}</b> is your helper in this room. Stuck? Ask {helperName} for a nudge in the chat{" "}
+              <span className="where-wide">on the right</span>
+              <span className="where-narrow">below the puzzles</span>.
+            </p>
+            <button className="btn soft" onClick={goToHelper}>Ask {helperName}</button>
+          </div>
           <div className="progress">
             {room.puzzles.map((_, p) => <i key={p} className={g.solved[key(g.room, p)] ? "on" : ""} />)}
             <span>{solvedCount} of 4 puzzles solved</span>
