@@ -1,0 +1,2072 @@
+[
+  {
+    "title": "The Great Gumdrop Gulch Candy Vanishing",
+    "premise": "On Halloween morning, every single piece of candy in the town of Gumdrop Gulch floated out of the bowls, baskets, and jars in a swirl of sparkly sugar. A trail of shiny wrappers leads right up to the creaky door of Hollow House, and you are the detective who is brave enough to go inside!",
+    "ending": "The ghoul, the patchwork monster, and the mummy admit that they took the candy because they have never been trick-or-treating, and they wanted to throw a surprise Halloween party for the whole town. They were so nervous about inviting everyone that they gathered the candy first to make the party extra special. The whole town of Gumdrop Gulch joins in with costumes, games, and music, and everyone shares the candy until every bag is full. The monsters learn that Halloween is best when friends celebrate together, and they promise to come trick-or-treating next year!",
+    "rooms": [
+      {
+        "theme": "ghoul",
+        "name": "The Glow-Mushroom Crypt",
+        "description": "A cozy underground crypt lit by glowing mushrooms that blink like tiny lamps. Shiny candy wrappers are tucked between the stones, so the candy must have come this way!",
+        "unlock": "A hidden drawer pops open and out tumble a hundred lollipops! A scrap of paper is stuck to one that says, 'The candy was taken by someone who has never been to a Halloween party.'",
+        "helper": {
+          "name": "Tidy the Ghoul",
+          "intro": "Hello, detective! I collect lost socks and buttons, and I will happily help you search for clues."
+        },
+        "puzzles": [
+          {
+            "type": "What's missing",
+            "title": "The Crumbly Calendar",
+            "clue": "A calendar is carved into the crypt wall, but one day has crumbled away: Monday, Tuesday, Wednesday, ____, Friday, Saturday, Sunday.",
+            "question": "Which day of the week is missing?",
+            "answer": "Thursday",
+            "alternates": [
+              "thursday",
+              "Thurs"
+            ],
+            "hint": "It comes right after Wednesday and right before Friday."
+          },
+          {
+            "type": "Matching pairs",
+            "title": "Tidy's Lost and Found",
+            "clue": "Tidy has sorted these into pairs: Left glove and Right glove, Key and Lock, Cup and Saucer. One more item is left over with no partner: Hat.",
+            "question": "Which item has no partner?",
+            "answer": "Hat",
+            "alternates": [
+              "hat",
+              "the hat"
+            ],
+            "hint": "Look for the one thing that was not matched with anything."
+          },
+          {
+            "type": "Odd one out",
+            "title": "What Does Not Glow?",
+            "clue": "Tidy points at four things in the crypt: a Mushroom, a Firefly, a Glow stick, and a Brick.",
+            "question": "Which one does not glow in the dark?",
+            "answer": "Brick",
+            "alternates": [
+              "brick",
+              "the brick"
+            ],
+            "hint": "Three of them light up the night, but this one is just a plain building block."
+          },
+          {
+            "type": "Mushroom trivia",
+            "title": "The Mushroom Mystery",
+            "clue": "A glowing mushroom whispers a question to you. Mushrooms are not plants or animals. What kind of living thing is a mushroom? A) Fungus  B) Rock  C) Insect",
+            "question": "What kind of living thing is a mushroom?",
+            "answer": "Fungus",
+            "alternates": [
+              "A",
+              "a",
+              "fungi"
+            ],
+            "hint": "Mushrooms, molds, and yeast all belong to the same group."
+          }
+        ]
+      },
+      {
+        "theme": "monster",
+        "name": "The Sparky Stitch Lab",
+        "description": "A lab full of bubbling jars, fizzing potions, and crackling sparks that dance across the ceiling. A sticky trail of caramel leads across the floor, so the candy came through here too!",
+        "unlock": "A bubbling jar pops its lid and out burst piles of chewy caramels! A note stuck on a caramel says, 'The candy was taken so everyone could share it together.'",
+        "helper": {
+          "name": "Patch the Monster",
+          "intro": "Greetings, friend! I am stitched together from lots of mismatched parts, and my big heart is the best part of all."
+        },
+        "puzzles": [
+          {
+            "type": "Weather trivia",
+            "title": "Sunshine and Raindrops",
+            "clue": "A jar on the shelf shows a colorful arc in the sky after it rains while the sun is shining. What is it called? A) Rainbow  B) Sandwich  C) Pillow",
+            "question": "What do you see in the sky when sunshine shines through raindrops?",
+            "answer": "Rainbow",
+            "alternates": [
+              "A",
+              "a",
+              "rainbows"
+            ],
+            "hint": "It has red, orange, yellow, green, blue, and purple stripes."
+          },
+          {
+            "type": "Logic puzzle",
+            "title": "The Tall Jar Tower",
+            "clue": "Three lab pals are comparing heights. Bolt is taller than Fizz. Fizz is taller than Sprocket.",
+            "question": "Who is the shortest of the three?",
+            "answer": "Sprocket",
+            "alternates": [
+              "sprocket"
+            ],
+            "hint": "Line them up in order from tallest to shortest."
+          },
+          {
+            "type": "Count it",
+            "title": "Jars on the Shelves",
+            "clue": "Patch has 4 shelves with 3 bubbling jars on each shelf. Then Patch carries in 5 more jars to add to the collection.",
+            "question": "How many jars are in the lab now?",
+            "answer": "17",
+            "alternates": [
+              "seventeen"
+            ],
+            "hint": "First multiply 4 times 3, then add the 5 new jars."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Spark Code",
+            "clue": "The sparks spell a secret code where A=1, B=2, C=3, and so on up to Z=26. The sparks flash these numbers: 3, 1, 14, 4, 25.",
+            "question": "What word do the numbers spell?",
+            "answer": "Candy",
+            "alternates": [
+              "candy",
+              "CANDY"
+            ],
+            "hint": "Count along the alphabet: the first number 3 is the letter C."
+          }
+        ]
+      },
+      {
+        "theme": "mummy",
+        "name": "The Dusty Pyramid Storeroom",
+        "description": "A dusty pyramid storeroom stacked with clay pots, golden statues, and rolled-up scrolls. A sweet sugary smell floats from behind the biggest pot, so the candy must be close!",
+        "unlock": "The giant clay pot slides open to reveal mountains of candy, balloons, and a banner that says 'Welcome, Gumdrop Gulch!' The ghoul, the monster, and the mummy are all waiting, smiling shyly.",
+        "helper": {
+          "name": "Wrappy the Mummy",
+          "intro": "Oh, hello, so very pleased to meet you! Pardon my bandages, they keep unraveling whenever I get excited."
+        },
+        "puzzles": [
+          {
+            "type": "Unscramble",
+            "title": "The Jumbled Statue",
+            "clue": "The letters on a golden statue have been mixed up: X I N H S P. It is a famous Egyptian statue with a lion body and a human face.",
+            "question": "What word do the jumbled letters spell?",
+            "answer": "Sphinx",
+            "alternates": [
+              "sphinx",
+              "SPHINX",
+              "the sphinx"
+            ],
+            "hint": "It begins with S and sits quietly guarding the desert."
+          },
+          {
+            "type": "Riddle",
+            "title": "The Hands Riddle",
+            "clue": "Wrappy reads a riddle from a scroll: I have two hands, but I can never clap. I have a face, but I cannot smile.",
+            "question": "What am I?",
+            "answer": "Clock",
+            "alternates": [
+              "clock",
+              "a clock",
+              "watch"
+            ],
+            "hint": "You look at me to find out what time it is."
+          },
+          {
+            "type": "Egypt trivia",
+            "title": "The River Question",
+            "clue": "A scroll asks which famous river flowed through ancient Egypt and gave farmers water for their crops. A) Nile  B) Soda  C) Pudding",
+            "question": "Which river flowed through ancient Egypt?",
+            "answer": "Nile",
+            "alternates": [
+              "A",
+              "a",
+              "the nile"
+            ],
+            "hint": "It is one of the longest rivers in the whole world."
+          },
+          {
+            "type": "Put in order",
+            "title": "Wrappy's Candy Plan",
+            "clue": "Wrappy wrote these steps out of order: 1) Eat the candy. 2) Unwrap the candy. 3) Find the candy. 4) Open the bag.",
+            "question": "Which step number should happen FIRST?",
+            "answer": "3",
+            "alternates": [
+              "three",
+              "step 3"
+            ],
+            "hint": "You have to find the candy before you can do anything else with it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Maple Hollow",
+    "premise": "On the night before Halloween, every piece of candy in the town of Maple Hollow floated out of the shops and houses in a swirl of sparkly purple smoke. The glittery trail of sugar crumbs leads up the hill and right through the front door of the crooked Hollow House.",
+    "ending": "The gargoyle, the patchwork monster and the werewolf step out and explain that none of them had ever been trick-or-treating, so they borrowed the town's candy to throw their very first Halloween party. They are sorry they did not ask, and they invite everyone in Maple Hollow to come celebrate. The town laughs, everyone puts on costumes, and the monsters finally get to go door to door while sharing all of the candy with every guest.",
+    "rooms": [
+      {
+        "theme": "gargoyle",
+        "name": "The Midnight Rooftop",
+        "description": "You climb out onto a castle rooftop under a sky full of twinkling stars, where stone statues sit in a row. A trail of sticky sugar crumbs leads right past a chimney shaped like a giant lollipop.",
+        "unlock": "Behind a loose roof tile you find a bag of 20 candy corns and a tiny glittery party hat. Whoever took the candy must be planning something festive!",
+        "helper": {
+          "name": "Grumble the Gargoyle",
+          "intro": "Yawn! I only wake up after dark, but I will gladly help you look for the candy, friend."
+        },
+        "puzzles": [
+          {
+            "type": "Logic puzzle",
+            "title": "The Tall Tower Statues",
+            "clue": "Three little statues sit on the roof: Pip, Gus and Moe. Pip is taller than Gus, and Gus is taller than Moe.",
+            "question": "Which statue is the tallest?",
+            "answer": "Pip",
+            "alternates": [
+              "pip"
+            ],
+            "hint": "If Pip is taller than Gus, and Gus is taller than Moe, then Pip beats them both."
+          },
+          {
+            "type": "Count it",
+            "title": "Baskets on the Roof",
+            "clue": "Grumble found 3 baskets, and each basket has 4 gumdrops inside. Then he finds 5 more gumdrops lying on the roof tiles.",
+            "question": "How many gumdrops does Grumble have in all?",
+            "answer": "17",
+            "alternates": [
+              "seventeen"
+            ],
+            "hint": "First multiply 3 times 4, then add the 5 extra gumdrops."
+          },
+          {
+            "type": "Mirror writing",
+            "title": "The Backwards Banner",
+            "clue": "A banner on the chimney is written in mirror style: TSOHG. Read it from right to left to find the real word.",
+            "question": "What word does the banner really say?",
+            "answer": "ghost",
+            "alternates": [
+              "GHOST",
+              "Ghost"
+            ],
+            "hint": "Start at the last letter, H-G, and read backwards to the first letter."
+          },
+          {
+            "type": "Space trivia",
+            "title": "The Star at the Center",
+            "clue": "Grumble points at the sky and asks what is the star at the center of our solar system, which gives Earth light and warmth during the day. A) The Sun  B) A giant cookie  C) A fuzzy pillow",
+            "question": "What is at the center of our solar system?",
+            "answer": "Sun",
+            "alternates": [
+              "A",
+              "The Sun",
+              "sun"
+            ],
+            "hint": "It rises in the morning and sets in the evening."
+          }
+        ]
+      },
+      {
+        "theme": "monster",
+        "name": "The Sparkly Lab",
+        "description": "Bubbling jars glow green and pink while little sparks zip along the wires overhead. A trail of candy wrappers leads to a table covered with party streamers.",
+        "unlock": "A glass jar pops open and out tumbles 30 chocolate coins and a guest list covered in monster signatures. The candy thief is inviting lots of friends to something!",
+        "helper": {
+          "name": "Stitch the Patchwork Monster",
+          "intro": "Hello, friend! I am made of mismatched parts, and I love puzzles almost as much as I love naps."
+        },
+        "puzzles": [
+          {
+            "type": "Weather trivia",
+            "title": "After the Rain",
+            "clue": "A jar bubbles up a puzzle about the sky: when the sun peeks out while it is still raining, what colorful arch can you see? A) A rainbow  B) A giant sock  C) A pizza slice",
+            "question": "What colorful arch appears in the sky?",
+            "answer": "Rainbow",
+            "alternates": [
+              "A",
+              "rainbow",
+              "a rainbow"
+            ],
+            "hint": "It has red, orange, yellow, green, blue and purple stripes."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Number Code",
+            "clue": "The lab uses a number code where A=1, B=2, C=3, and so on up to Z=26. The sparks spell out 3-1-14-4-25.",
+            "question": "What word do the numbers spell?",
+            "answer": "candy",
+            "alternates": [
+              "CANDY",
+              "Candy"
+            ],
+            "hint": "Count along the alphabet: 3 is C, and 1 is A."
+          },
+          {
+            "type": "Shape puzzle",
+            "title": "The Triangle Flags",
+            "clue": "Stitch hung 3 triangle flags on the wall to decorate for a party. A triangle has 3 sides, and every flag is exactly the same.",
+            "question": "How many sides do all the flags have together?",
+            "answer": "9",
+            "alternates": [
+              "nine"
+            ],
+            "hint": "Multiply the number of flags by the number of sides on each triangle."
+          },
+          {
+            "type": "Put in order",
+            "title": "The Fizzy Potion Steps",
+            "clue": "Stitch wrote the potion steps in a jumbled order. Step 1: Zap the potion with a spark. Step 2: Pour the potion into a jar. Step 3: Mix the fizzy ingredients in a bowl.",
+            "question": "Which step number should happen first?",
+            "answer": "3",
+            "alternates": [
+              "three",
+              "step 3"
+            ],
+            "hint": "You must make the potion before you can zap it or pour it."
+          }
+        ]
+      },
+      {
+        "theme": "werewolf",
+        "name": "The Moonlit Cabin",
+        "description": "A cozy log cabin sits among tall pines, and bright moonlight streams through the windows onto a big wooden table. Paw prints and sprinkles lead across the floor to a stack of paper invitations.",
+        "unlock": "You find the very last 40 candies hidden in a big basket beside a stack of invitations. They are signed by all the monsters, and one says: Please come to our very first trick-or-treat party!",
+        "helper": {
+          "name": "Howlie the Werewolf",
+          "intro": "Awooo! Sorry, I always howl off-key, but I am very good at helping with puzzles."
+        },
+        "puzzles": [
+          {
+            "type": "Rhyme time",
+            "title": "The Night Flyer",
+            "clue": "A small animal with wings flies around at night and hangs upside down to sleep. Its name rhymes with cat.",
+            "question": "What animal is it?",
+            "answer": "bat",
+            "alternates": [
+              "BAT",
+              "Bat",
+              "a bat"
+            ],
+            "hint": "Think of an animal that sleeps in caves and is often drawn on Halloween."
+          },
+          {
+            "type": "Missing word",
+            "title": "The Lullaby Line",
+            "clue": "Howlie hums a song he loves: Twinkle, twinkle, little ___, how I wonder what you are.",
+            "question": "What word fills the blank?",
+            "answer": "star",
+            "alternates": [
+              "STAR",
+              "Star"
+            ],
+            "hint": "It twinkles high up in the night sky."
+          },
+          {
+            "type": "Moon trivia",
+            "title": "Moon Walk",
+            "clue": "Long ago, astronauts visited the moon and walked across its dusty ground, leaving something behind that is still there today. A) Footprints  B) A swimming pool  C) A snowman",
+            "question": "What did the astronauts leave on the moon?",
+            "answer": "Footprints",
+            "alternates": [
+              "A",
+              "footprints",
+              "Footprint"
+            ],
+            "hint": "You make these when you walk on soft sand or mud."
+          },
+          {
+            "type": "Track it",
+            "title": "Mystery Prints",
+            "clue": "Tiny prints in the mud look like little hands with five fingers. They were made by a night animal with a black mask who loves to sneak into trash cans. The animals are raccoon, duck and snake.",
+            "question": "Which animal made the prints?",
+            "answer": "raccoon",
+            "alternates": [
+              "Raccoon",
+              "RACCOON",
+              "a raccoon"
+            ],
+            "hint": "This animal wears a mask like a bandit and has a ringed tail."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Mapleberry Candy Vanishing",
+    "premise": "On the night before Halloween, every piece of candy in Mapleberry Town floated out of its jars and bowls in a sparkly, swirly line. The glittery trail of sugar sparkles leads all the way to the front door of Hollow House, and it is up to you to solve the mystery!",
+    "ending": "The monsters tiptoe out with a giant banner that reads 'Our First Trick-or-Treat Party!' They explain that they have never been trick-or-treating, so they borrowed the candy to practice, decorate, and plan a surprise for the whole town. The grateful monsters hand every piece back, and Mapleberry Town invites them to trick-or-treat together. Everyone shares the candy, the werewolf sings off-key, and the whole night ends with giggles and full pockets.",
+    "rooms": [
+      {
+        "theme": "vampire",
+        "name": "The Candlelit Clock Hall",
+        "description": "A grand castle hall glows with wobbly candles, and a giant clock ticks and tocks above a long table. A few shiny wrappers are tucked under a velvet curtain, so the candy must have passed through here!",
+        "unlock": "The clock chimes and a drawer pops open, spilling out a pile of lollipops! Tucked inside is a note that says: 'Borrowed for a very special first-time surprise. Follow the howling to the forest cabin.'",
+        "helper": {
+          "name": "Count Velvet the Vampire",
+          "intro": "Hello, friend! I only sip tomato juice, and could you please stay close because I do not like the dark!"
+        },
+        "puzzles": [
+          {
+            "type": "Potion math",
+            "title": "Tomato Juice Brew",
+            "clue": "Count Velvet makes his tomato juice brew in batches. Each batch needs 3 drops of tomato magic, and he is making 5 batches for a party.",
+            "question": "How many drops of tomato magic does he need in all?",
+            "answer": "15",
+            "alternates": [
+              "fifteen"
+            ],
+            "hint": "Add 3 together five times, or multiply 3 times 5."
+          },
+          {
+            "type": "Clock puzzle",
+            "title": "The Sleepy Clock",
+            "clue": "The big castle clock says 7 o'clock when Count Velvet starts a nap. He sleeps for exactly 4 hours.",
+            "question": "What hour will the clock show when he wakes up?",
+            "answer": "11",
+            "alternates": [
+              "eleven",
+              "11 o'clock"
+            ],
+            "hint": "Count forward 4 hours from 7."
+          },
+          {
+            "type": "Mirror writing",
+            "title": "The Backwards Sign",
+            "clue": "A sign in the mirror reads ELTTOB, but mirrors flip the letters around. Read it from right to left to find what the tomato juice comes in.",
+            "question": "What word does the mirror sign really say?",
+            "answer": "bottle",
+            "alternates": [
+              "BOTTLE",
+              "Bottle"
+            ],
+            "hint": "Start with the last letter, B, and read backwards."
+          },
+          {
+            "type": "Night animal trivia",
+            "title": "Upside-Down Sleeper",
+            "clue": "Bats sleep all day and zoom around at night. Which of these animals hangs upside down to sleep and flies in the dark? A) Bat  B) Goldfish  C) Cow",
+            "question": "Which animal hangs upside down and flies at night?",
+            "answer": "bat",
+            "alternates": [
+              "A",
+              "a",
+              "Bat",
+              "BAT"
+            ],
+            "hint": "It is Count Velvet's favorite flying friend."
+          }
+        ]
+      },
+      {
+        "theme": "werewolf",
+        "name": "The Moonlit Forest Cabin",
+        "description": "A cozy wooden cabin sits among tall pine trees under a huge silver moon, with fluffy fur tufts floating in the air. Candy corn is scattered along the porch like a crunchy yellow path.",
+        "unlock": "A hatch in the floor opens and out tumbles a heap of gummy bears! A second note says: 'We have never been trick-or-treating, so we wanted to practice. Look for the shiny hoard in the goblin cave.'",
+        "helper": {
+          "name": "Fuzzy the Werewolf",
+          "intro": "Awoooo-ooh-OOPS, that note was off-key again! Come in, I will help you, and please do not tell anyone about my singing."
+        },
+        "puzzles": [
+          {
+            "type": "Count it",
+            "title": "Acorn Baskets",
+            "clue": "Fuzzy collected 3 baskets with 6 acorns in each basket. Then a hungry squirrel borrowed 4 acorns.",
+            "question": "How many acorns are left?",
+            "answer": "14",
+            "alternates": [
+              "fourteen"
+            ],
+            "hint": "First find 3 times 6, then take away 4."
+          },
+          {
+            "type": "Missing word",
+            "title": "The Early Bird",
+            "clue": "Fuzzy loves this saying that is carved over the cabin door: 'The early bird catches the ___.'",
+            "question": "What word goes in the blank?",
+            "answer": "worm",
+            "alternates": [
+              "WORM",
+              "Worm",
+              "a worm"
+            ],
+            "hint": "It is long, wiggly, and robins love to eat it."
+          },
+          {
+            "type": "Track it",
+            "title": "Mystery Footprints",
+            "clue": "Fuzzy finds prints in the soft dirt: two big oval back feet and two tiny front prints, in a hopping pattern. The animal could be a rabbit, a duck, or a snake.",
+            "question": "Which animal made the footprints?",
+            "answer": "rabbit",
+            "alternates": [
+              "Rabbit",
+              "RABBIT",
+              "a rabbit"
+            ],
+            "hint": "A duck has webbed feet and a snake has no feet, so who hops with long ears?"
+          },
+          {
+            "type": "Moon trivia",
+            "title": "Why the Moon Glows",
+            "clue": "The moon looks bright and shiny in the night sky, but it does not make its own light. What does the moon reflect to glow? A) Sun  B) A giant lamp  C) A candle",
+            "question": "What gives the moon its glow?",
+            "answer": "sun",
+            "alternates": [
+              "A",
+              "a",
+              "Sun",
+              "SUN",
+              "the sun"
+            ],
+            "hint": "It is the bright star that shines in the daytime."
+          }
+        ]
+      },
+      {
+        "theme": "goblin",
+        "name": "The Messy Treasure Cave",
+        "description": "A sparkly cave is crammed with piles of buttons, bottle caps, and glittery crystals that wink in the lantern light. Peppermint wrappers are stuck to the walls, and a giggle echoes from somewhere deep inside.",
+        "unlock": "Behind the biggest pile of buttons you find a huge sack of chocolate bars, and the whole candy mountain is here! A tiny party invitation hangs on the sack, and it is signed by all the monsters, who are waiting for you in the front hall.",
+        "helper": {
+          "name": "Giggles the Goblin",
+          "intro": "Hee hee! I collect every shiny button in the world, and I will happily swap a clue for a good puzzle!"
+        },
+        "puzzles": [
+          {
+            "type": "Logic puzzle",
+            "title": "The Button Piles",
+            "clue": "Pip has more buttons than Zog. Zog has more buttons than Nib.",
+            "question": "Who has the fewest buttons, Pip, Zog, or Nib?",
+            "answer": "Nib",
+            "alternates": [
+              "nib",
+              "NIB"
+            ],
+            "hint": "The one who is less than both of the others has the fewest."
+          },
+          {
+            "type": "Rock trivia",
+            "title": "The Fire Mountain",
+            "clue": "Deep in the cave, Giggles tells you about mountains that blow out hot melted rock called lava. What is this kind of mountain called? A) Volcano  B) Pillow  C) Snowman",
+            "question": "What do we call a mountain that shoots out lava?",
+            "answer": "volcano",
+            "alternates": [
+              "A",
+              "a",
+              "Volcano",
+              "VOLCANO"
+            ],
+            "hint": "It starts with V and can go boom!"
+          },
+          {
+            "type": "Pattern",
+            "title": "The Button Stack",
+            "clue": "Giggles stacks buttons in rows of 5, 10, 15, 20 and keeps going the same way.",
+            "question": "How many buttons are in the next row?",
+            "answer": "25",
+            "alternates": [
+              "twenty five",
+              "twentyfive",
+              "twenty-five"
+            ],
+            "hint": "Each row adds the same number more than the row before."
+          },
+          {
+            "type": "Unscramble",
+            "title": "Giggles's Favorite Thing",
+            "clue": "The letters on this shiny treasure are all mixed up: B U T O T N. It is round, has holes, and Giggles collects it.",
+            "question": "What word do the letters spell?",
+            "answer": "button",
+            "alternates": [
+              "BUTTON",
+              "Button"
+            ],
+            "hint": "It helps hold a coat closed."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Maplewood Hollow",
+    "premise": "On the night before Halloween, every piece of candy in Maplewood Town floated out of the shops and bowls and zoomed away in a swirl of sparkles. The trail of sugar sprinkles leads right up to the creaky front door of Hollow House, and you are the detectives who can solve it!",
+    "ending": "The monsters shyly tell you that they had never been trick-or-treating, because they were always too nervous to knock on doors, so they gathered the candy to practice a party of their own. Everyone laughs and agrees that the candy belongs to the whole town. Stitch, Giggles, and Count Tomato carry the bags to Maplewood Town, and the monsters finally get to go trick-or-treating with all their new friends. Then everyone shares the sweets under the moonlight, and it becomes the happiest Halloween the town has ever had.",
+    "rooms": [
+      {
+        "theme": "monster",
+        "name": "The Bubbling Patchwork Lab",
+        "description": "Jars of purple bubbles pop and little sparks zip across the ceiling like tiny fireflies. A few sticky lollipop wrappers are stuck to the floor, so the candy came this way!",
+        "unlock": "The lab door pops open and you find a whole basket of lollipops hiding behind a jar! Tucked in the basket is a note with a sparkly paw print that says, 'We just wanted to be part of something fun.'",
+        "helper": {
+          "name": "Stitch the Gentle Monster",
+          "intro": "Hi there, friend! I am sewn from lots of mismatched parts, but my heart matches just fine, so let me help you!"
+        },
+        "puzzles": [
+          {
+            "type": "Shape puzzle",
+            "title": "The Quilt of Corners",
+            "clue": "Stitch the Patchwork monster is very proud of her quilt. It has exactly 2 triangle patches and exactly 3 square patches. Every patch is separate, and no corners are shared or hidden. Remember: a triangle has 3 corners, and a square has 4 corners.",
+            "question": "If you count the corners of every triangle patch and every square patch, how many corners are there in all?",
+            "answer": "18",
+            "alternates": [
+              "eighteen"
+            ],
+            "hint": "Count the triangle corners first: 3 + 3. Then count the square corners: 4 + 4 + 4. Add the two totals together!"
+          },
+          {
+            "type": "Put in order",
+            "title": "The Fizzy Potion Steps",
+            "clue": "To make a sparkle potion, Stitch must do four things: 1) Stir the jar. 2) Pour in the fizzy juice. 3) Put on safety goggles. 4) Flip the big switch to make sparks. Safety always comes before anything bubbly or sparky!",
+            "question": "Which step number should Stitch do FIRST?",
+            "answer": "3",
+            "alternates": [
+              "three",
+              "step 3"
+            ],
+            "hint": "Look for the step that keeps Stitch's eyes safe."
+          },
+          {
+            "type": "Weather trivia",
+            "title": "Sky Colors",
+            "clue": "Stitch looks out the lab window after a rain shower, and the sun peeks out from behind the clouds. What colorful arch can appear in the sky? A) Rainbow  B) Snowball  C) Thunder jelly",
+            "question": "What colorful arch appears when sunshine shines through raindrops?",
+            "answer": "rainbow",
+            "alternates": [
+              "A",
+              "a rainbow"
+            ],
+            "hint": "It has red, orange, yellow, green, blue, and purple stripes."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Number Jar Code",
+            "clue": "A jar has a label with numbers on it. The code is A=1, B=2, C=3 and so on up to Z=26. The label says: 2-15-12-20.",
+            "question": "What 4-letter word does the code spell?",
+            "answer": "bolt",
+            "alternates": [
+              "BOLT",
+              "a bolt"
+            ],
+            "hint": "Count along the alphabet: B is 2, and the last number 20 is T."
+          }
+        ]
+      },
+      {
+        "theme": "goblin",
+        "name": "The Messy Button Cave",
+        "description": "Piles of shiny buttons, spoons, and bottle caps are heaped up to the ceiling of this twinkly cave. A trail of gumdrops leads deeper in, so the candy trail is getting warmer!",
+        "unlock": "A mountain of buttons slides aside to reveal a sack bursting with gumdrops and chocolate coins! A little party invitation lies on top, and it says, 'Please come to our very first...' but the rest is torn off.",
+        "helper": {
+          "name": "Giggles the Goblin",
+          "intro": "Hee hee! Welcome to my cave! I love shiny buttons more than anything, so I will help you if you promise not to tickle me!"
+        },
+        "puzzles": [
+          {
+            "type": "Rock trivia",
+            "title": "The Volcano Rock",
+            "clue": "Giggles keeps a map of a giant mountain that puffs smoke from the top. What is the hot, melted rock that flows out of a volcano called? A) Pudding  B) Lava  C) Snowflake",
+            "question": "What is melted rock from a volcano called?",
+            "answer": "lava",
+            "alternates": [
+              "B",
+              "magma"
+            ],
+            "hint": "It is hot, glowing, and flows down the side of a volcano."
+          },
+          {
+            "type": "Money math",
+            "title": "The Button Bags",
+            "clue": "Giggles has 4 bags and each bag holds 6 shiny buttons. There are also 5 loose buttons rolling around on the floor.",
+            "question": "How many buttons does Giggles have in all?",
+            "answer": "29",
+            "alternates": [
+              "twenty nine",
+              "twentynine"
+            ],
+            "hint": "Multiply 4 by 6 first, then add the 5 loose buttons."
+          },
+          {
+            "type": "Pattern",
+            "title": "The Growing Gem Pile",
+            "clue": "Giggles stacks gems in piles that grow like this: 2, 4, 8, 16, and then one more pile.",
+            "question": "How many gems are in the next pile?",
+            "answer": "32",
+            "alternates": [
+              "thirty two",
+              "thirtytwo"
+            ],
+            "hint": "Each pile has double the gems of the pile before it."
+          },
+          {
+            "type": "Logic puzzle",
+            "title": "Who Has the Fewest?",
+            "clue": "Three goblin friends are counting buttons. Gribble has more buttons than Nib. Nib has more buttons than Zog.",
+            "question": "Who has the FEWEST buttons: Gribble, Nib, or Zog?",
+            "answer": "Zog",
+            "alternates": [
+              "zog"
+            ],
+            "hint": "Line them up from most to least and see who is last."
+          }
+        ]
+      },
+      {
+        "theme": "vampire",
+        "name": "The Candlelit Clock Hall",
+        "description": "Hundreds of candles flicker in a grand castle hall, and a giant clock ticks loudly in the middle of the floor. Streamers and a half-hung banner hint that someone is planning something special.",
+        "unlock": "The last candle lights up a giant banner that says 'FIRST EVER TRICK-OR-TREAT PARTY!' and behind it sits a mountain of candy bags. Now you know that the monsters took the candy, and you can guess why!",
+        "helper": {
+          "name": "Count Tomato the Vampire",
+          "intro": "Good evening, friends! I only sip tomato juice, and please, may we keep the candles lit? I get a teensy bit scared of the dark."
+        },
+        "puzzles": [
+          {
+            "type": "Riddle",
+            "title": "The Ticking Riddle",
+            "clue": "Count Tomato giggles and asks you this riddle: 'I have two hands but I cannot clap. I have a face but no nose or mouth. I tick and tock all day.'",
+            "question": "What am I?",
+            "answer": "clock",
+            "alternates": [
+              "a clock",
+              "the clock"
+            ],
+            "hint": "Look at the giant thing ticking in the middle of the hall."
+          },
+          {
+            "type": "Night animal trivia",
+            "title": "The Upside-Down Sleeper",
+            "clue": "Count Tomato loves his friends who sleep upside down during the day and fly around at night. Which animal does that? A) Butterfly  B) Duck  C) Bat",
+            "question": "Which animal sleeps upside down and flies at night?",
+            "answer": "bat",
+            "alternates": [
+              "C",
+              "a bat"
+            ],
+            "hint": "This furry flyer hangs from cave ceilings and uses squeaky sounds to find its way."
+          },
+          {
+            "type": "Potion math",
+            "title": "The Tomato Juice Recipe",
+            "clue": "For the party, Count Tomato fills 4 jars with 3 cups of tomato juice each. Then he pours in 2 extra cups for himself.",
+            "question": "How many cups of tomato juice does he use in all?",
+            "answer": "14",
+            "alternates": [
+              "fourteen"
+            ],
+            "hint": "Multiply 4 jars by 3 cups, then add the 2 extra cups."
+          },
+          {
+            "type": "Mirror writing",
+            "title": "The Banner in the Mirror",
+            "clue": "The banner on the wall is backwards in the mirror! It says: NOOM.",
+            "question": "What word do you get when you read it forwards?",
+            "answer": "moon",
+            "alternates": [
+              "MOON",
+              "the moon"
+            ],
+            "hint": "Read the letters from the right side to the left side. It shines in the night sky."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Harvest Hollow",
+    "premise": "On the night before Halloween, every piece of candy in Harvest Hollow vanished from bowls, jars, and shop shelves, leaving only a trail of glittery wrappers. The trail twinkles all the way up the creaky path to Hollow House, and the front door swings open with a friendly squeak.",
+    "ending": "All the monsters pop out from behind the kitchen door with party hats on! Flicker, Lumpy, and the witch explain that they had never been trick-or-treating, so they gathered the candy to practice and plan a big surprise party for the whole town. Everyone laughs, the monsters say sorry for the mix-up, and the candy is shared with every kid in Harvest Hollow. Then the town and the monsters go trick-or-treating together under the glowing moon.",
+    "rooms": [
+      {
+        "theme": "pumpkin",
+        "name": "The Glowing Pumpkin Patch",
+        "description": "Rows of grinning pumpkins glow orange across a room full of curly vines and soft, warm light. A few shiny candy wrappers are tangled in the leaves, so someone has been here.",
+        "unlock": "A hidden pumpkin lid pops open and out tumbles a big pile of candy! A sticky note in the vines says, 'Whoever took the candy loves big, bubbly places with sparks.'",
+        "helper": {
+          "name": "Flicker the Jack-o'-Lantern",
+          "intro": "Hi there! Help me and I'll find the perfect carved face for me. I think I'd look great with a big wobbly smile!"
+        },
+        "puzzles": [
+          {
+            "type": "Plant trivia",
+            "title": "Root Power",
+            "clue": "Pumpkin plants grow long vines above the ground, but under the soil they have roots too. What is the main job of a plant's roots? A) Drink water  B) Sing to the moon  C) Catch butterflies",
+            "question": "What is the main job of a plant's roots?",
+            "answer": "Drink water",
+            "alternates": [
+              "A",
+              "drinkwater",
+              "drink"
+            ],
+            "hint": "Roots are under the ground, where the water soaks in."
+          },
+          {
+            "type": "Missing word",
+            "title": "The Patch Proverb",
+            "clue": "Flicker hums an old saying: An apple a day keeps the ___ away.",
+            "question": "Which word fills the blank?",
+            "answer": "doctor",
+            "alternates": [
+              "doctors",
+              "the doctor"
+            ],
+            "hint": "It is a person who helps you when you are sick."
+          },
+          {
+            "type": "Shape puzzle",
+            "title": "Carve a Face",
+            "clue": "Flicker the Jack-o'-lantern has a carved face made of shapes. Two triangle eyes, one round circle nose, and one square mouth. Remember: a triangle has 3 corners, a square has 4 corners, and a circle has 0 corners.",
+            "question": "If you add up the corners of all four shapes on Flicker's face (2 eyes, 1 nose, 1 mouth), how many corners are there in all? Answer with a number.",
+            "answer": "10",
+            "alternates": [
+              "ten"
+            ],
+            "hint": "Each triangle eye has 3 corners, so two eyes have 6. The circle nose has 0. Then add the 4 corners of the square mouth."
+          },
+          {
+            "type": "Count it",
+            "title": "Pumpkin Parade",
+            "clue": "In the glowing patch there are 2 rows of pumpkins with 5 pumpkins in each row. Then 4 more pumpkins pop up on the vines. After that, 3 pumpkins roll away down the hill to find a nap spot.",
+            "question": "How many pumpkins are in the patch now? Answer with a number.",
+            "answer": "11",
+            "alternates": [
+              "eleven"
+            ],
+            "hint": "First find 2 rows of 5 (that is 10). Then add 4, then take away 3."
+          }
+        ]
+      },
+      {
+        "theme": "monster",
+        "name": "The Sparky Stitch Lab",
+        "description": "Glass jars bubble with green goo and little blue sparks zip across the shiny tables. A big trail of candy wrappers leads straight to a squishy chair in the corner.",
+        "unlock": "Lumpy lifts a lab jar lid and hands you a heap of candy! A tiny note says, 'The one who took the candy is planning a big surprise, and magic soup is stirring upstairs.'",
+        "helper": {
+          "name": "Lumpy the Patchwork Monster",
+          "intro": "Hello, friend! I was stitched together from mismatched parts, so I love puzzles that fit together. Can you help me?"
+        },
+        "puzzles": [
+          {
+            "type": "Weather trivia",
+            "title": "After the Rain",
+            "clue": "A storm cloud passes and the sun peeks out. A colorful arch of red, orange, yellow, green, blue, and purple appears in the sky. What is it called? A) Rainbow  B) Snowman  C) Pancake",
+            "question": "What colorful arch appears in the sky when sun shines through rain?",
+            "answer": "Rainbow",
+            "alternates": [
+              "A",
+              "a rainbow"
+            ],
+            "hint": "It has all the colors of the spectrum in a curve."
+          },
+          {
+            "type": "Logic puzzle",
+            "title": "Tall Tale",
+            "clue": "Bolt is taller than Stitch. Stitch is taller than Patch.",
+            "question": "Who is the shortest of the three?",
+            "answer": "Patch",
+            "alternates": [
+              "patch"
+            ],
+            "hint": "Line them up from tallest to shortest and see who is last."
+          },
+          {
+            "type": "Put in order",
+            "title": "Goo Jar Steps",
+            "clue": "The steps to fill a lab jar are mixed up: 1) Zap the jar with a spark. 2) Put the full jar on the shelf. 3) Pour the green goo into the jar. 4) Pick up an empty jar.",
+            "question": "Which step number should happen FIRST?",
+            "answer": "4",
+            "alternates": [
+              "four",
+              "step 4"
+            ],
+            "hint": "You cannot pour goo into a jar until you have one in your hands."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Sweet Code",
+            "clue": "Lumpy wrote a number code where A=1, B=2, C=3, and so on up to Z=26. The code says: 3 - 1 - 14 - 4 - 25.",
+            "question": "What word does the code spell?",
+            "answer": "candy",
+            "alternates": [
+              "Candy",
+              "CANDY"
+            ],
+            "hint": "C is the 3rd letter, and Y is the 25th."
+          }
+        ]
+      },
+      {
+        "theme": "witch",
+        "name": "The Cozy Cauldron Kitchen",
+        "description": "A big black cauldron bubbles in the middle of a kitchen full of dangling herbs, spice jars, and tall shelves. The last candy wrappers lead right up to a table set with lots of tiny party plates.",
+        "unlock": "The cauldron bubbles and a giant mound of candy rises up, along with a tiny invitation card that reads, 'Come to the party! The monsters have never been trick-or-treating and wanted to learn how.'",
+        "helper": {
+          "name": "Whiskers the Chatty Black Cat",
+          "intro": "Meow, hello! I never stop talking, so I will help you with every puzzle. Just don't tell the witch I talk so much!"
+        },
+        "puzzles": [
+          {
+            "type": "Unscramble",
+            "title": "Ride Away",
+            "clue": "The letters on the cauldron's side got mixed up: O R B O M.",
+            "question": "What word do the letters spell?",
+            "answer": "broom",
+            "alternates": [
+              "Broom",
+              "BROOM"
+            ],
+            "hint": "Witches fly on one of these."
+          },
+          {
+            "type": "Rhyme time",
+            "title": "Pointy Top",
+            "clue": "Whiskers is thinking of something a witch wears on her head. It is pointy and tall, and it rhymes with the word cat.",
+            "question": "What is the rhyming word?",
+            "answer": "hat",
+            "alternates": [
+              "Hat",
+              "a hat"
+            ],
+            "hint": "Think of a tall, pointy black one."
+          },
+          {
+            "type": "Animal trivia",
+            "title": "Night Watcher",
+            "clue": "Owls are often pictured with witches. Which animal can see very well at night and can turn its head almost all the way around? A) Owl  B) Goldfish  C) Turtle",
+            "question": "Which animal can turn its head almost all the way around?",
+            "answer": "Owl",
+            "alternates": [
+              "A",
+              "an owl",
+              "owl"
+            ],
+            "hint": "It says hoo hoo in the dark."
+          },
+          {
+            "type": "Pattern",
+            "title": "Bubble Doubling",
+            "clue": "The cauldron bubbles in a pattern: 2, 4, 8, 16, and then the next number is missing.",
+            "question": "What number comes next?",
+            "answer": "32",
+            "alternates": [
+              "thirty-two",
+              "thirty two"
+            ],
+            "hint": "Each number is double the one before it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Pumpkinville",
+    "premise": "On the night before Halloween, every piece of candy in Pumpkinville floated out of the shops and houses and disappeared with a soft giggle and a puff of sparkles. A trail of shiny wrappers leads all the way up the hill to Hollow House, and the front door is creaking open just for you.",
+    "ending": "The monsters shyly come out of the pantry and explain that they have never been trick-or-treating, because they were always too nervous to knock on a door. They borrowed all the candy to throw a surprise Halloween party and invite everyone in Pumpkinville, and they are sorry they did not ask first. The townsfolk laugh and say thank you, and everyone shares the candy, plays games, and sings spooky songs together until the moon is high in the sky.",
+    "rooms": [
+      {
+        "theme": "scarecrow",
+        "name": "The Moonlit Cornfield Maze",
+        "description": "Tall corn stalks rustle under the silver moon, and the paths twist this way and that. A few candy wrappers dangle from the stalks like tiny flags.",
+        "unlock": "The corn parts to reveal a basket of sweet candy corn that hums a happy little tune. Tucked inside is a note that reads: We only wanted to try something we have never done before!",
+        "helper": {
+          "name": "Stitch the Scarecrow",
+          "intro": "H-hello... I'm Stitch, and I'm a little shy, especially when crows are around, but I'll help you if I can!"
+        },
+        "puzzles": [
+          {
+            "type": "Maze directions",
+            "title": "Through the Corn Maze",
+            "clue": "The maze is a 3 by 3 grid, and you are looking down at it from above. 'Up' means toward the top row, and 'right' means toward the right side. Top row, left to right: Hay Bale, Pumpkin Patch, Old Well. Middle row, left to right: Crow Nest, Scarecrow Post, Windmill. Bottom row, left to right: Gate, Ba",
+            "question": "Which place do you end up at?",
+            "answer": "Old Well",
+            "alternates": [
+              "Well",
+              "The Old Well"
+            ],
+            "hint": "Start at the Gate and move one square at a time. After two steps right you are at the Pond, in the bottom right corner. Then go up two squares along the right side."
+          },
+          {
+            "type": "Harvest trivia",
+            "title": "Harvest Time",
+            "clue": "Farmers gather their crops in the autumn. Which of these is a real crop that grows on a tall stalk in a field? A) Corn  B) Spaghetti  C) Pillows",
+            "question": "Which one is a real crop?",
+            "answer": "Corn",
+            "alternates": [
+              "A",
+              "a"
+            ],
+            "hint": "Think of yellow kernels you can eat on the cob."
+          },
+          {
+            "type": "Riddle",
+            "title": "Listening Stalks",
+            "clue": "I have ears but I cannot hear, and I grow tall in a farmer's field. Farmers love to pick me in the fall.",
+            "question": "What am I?",
+            "answer": "Corn",
+            "alternates": [
+              "Corncob",
+              "Sweetcorn"
+            ],
+            "hint": "You can eat me with butter, and my ears are covered in yellow kernels."
+          },
+          {
+            "type": "Sort it",
+            "title": "Biggest Harvest Treat",
+            "clue": "Stitch has four things in his basket: an acorn, an apple, a pumpkin, and a cherry.",
+            "question": "Which one is the biggest?",
+            "answer": "Pumpkin",
+            "alternates": [
+              "pumpkin"
+            ],
+            "hint": "One of these is so big you could carve a face into it."
+          }
+        ]
+      },
+      {
+        "theme": "vampire",
+        "name": "The Candlelit Clock Hall",
+        "description": "Hundreds of candles flicker in a great stone hall, and a giant clock ticks slowly on the wall. A sticky red footprint on the floor smells like tomato juice, and a few chocolate wrappers lie near it.",
+        "unlock": "The big clock opens like a little door and out tumble chocolate bars wrapped in shiny gold paper. Behind them is a long guest list with the words Surprise for the whole town written at the top.",
+        "helper": {
+          "name": "Count Tomato",
+          "intro": "Good evening, friend! I only sip tomato juice, and I'm a tiny bit afraid of the dark, so please stay close to the candles."
+        },
+        "puzzles": [
+          {
+            "type": "Mirror writing",
+            "title": "The Backwards Banner",
+            "clue": "A banner hangs above the door, but it was written in a mirror. It says: ELTSAC",
+            "question": "What word do you get when you read it forwards?",
+            "answer": "Castle",
+            "alternates": [
+              "castle",
+              "CASTLE"
+            ],
+            "hint": "Start from the last letter and read toward the first."
+          },
+          {
+            "type": "Potion math",
+            "title": "Tomato Juice Brew",
+            "clue": "Count Tomato puts 4 tomatoes in each cup of juice. He makes 3 cups, and then he adds 5 extra tomatoes to the pot.",
+            "question": "How many tomatoes does he use in all?",
+            "answer": "17",
+            "alternates": [
+              "seventeen"
+            ],
+            "hint": "First multiply 4 by 3, then add the 5 extra tomatoes."
+          },
+          {
+            "type": "Pattern",
+            "title": "The Ticking Clock Numbers",
+            "clue": "The clock chimes in a pattern: 3, 6, 12, 24, and then it goes quiet.",
+            "question": "What number comes next?",
+            "answer": "48",
+            "alternates": [
+              "forty-eight",
+              "fortyeight"
+            ],
+            "hint": "Each number is double the one before it."
+          },
+          {
+            "type": "Night animal trivia",
+            "title": "Creatures of the Night",
+            "clue": "Many animals are awake when the moon is out. Which animal hangs upside down to sleep and flies at night? A) Bat  B) Goldfish  C) Cow",
+            "question": "Which animal is it?",
+            "answer": "Bat",
+            "alternates": [
+              "A",
+              "a",
+              "bats"
+            ],
+            "hint": "It has wings, but it is not a bird."
+          }
+        ]
+      },
+      {
+        "theme": "witch",
+        "name": "The Bubbling Cauldron Kitchen",
+        "description": "A big black cauldron bubbles and burps in the middle of a cozy kitchen full of jars and spoons. The air smells like cinnamon and sugar, and a trail of sprinkles leads to the pantry.",
+        "unlock": "The cauldron burps out a rainbow of lollipops and a recipe card titled Candy Party Punch. Whiskers whispers that the monsters were planning a big surprise for the whole town.",
+        "helper": {
+          "name": "Whiskers the Cat",
+          "intro": "Meow, hello! I'm Whiskers, the witch's very chatty cat, and I have SO much to tell you, but first let's solve these puzzles!"
+        },
+        "puzzles": [
+          {
+            "type": "Secret code",
+            "title": "The Recipe Code",
+            "clue": "The recipe card is written in code where A=1, B=2, C=3, and so on up to Z=26. The first ingredient says: 2 18 15 15 13",
+            "question": "What word does the code spell?",
+            "answer": "Broom",
+            "alternates": [
+              "broom",
+              "BROOM"
+            ],
+            "hint": "Count along the alphabet: 2 is B, and 18 is R."
+          },
+          {
+            "type": "Rhyme time",
+            "title": "Pond Rhyme",
+            "clue": "Whiskers is thinking of a green animal that hops around ponds, says ribbit, and loves to sit on lily pads.",
+            "question": "What word does it rhyme with LOG?",
+            "answer": "Frog",
+            "alternates": [
+              "frog",
+              "FROG"
+            ],
+            "hint": "It starts with the letters FR and it hops."
+          },
+          {
+            "type": "Animal trivia",
+            "title": "Spider Facts",
+            "clue": "Spiders love to spin webs in a witch's kitchen. How many legs does a spider have? A) 8  B) 6  C) 10",
+            "question": "How many legs does a spider have?",
+            "answer": "8",
+            "alternates": [
+              "A",
+              "a",
+              "eight"
+            ],
+            "hint": "It is more than an insect has, and an insect has 6."
+          },
+          {
+            "type": "Unscramble",
+            "title": "Cauldron Letters",
+            "clue": "The bubbles in the cauldron popped out some jumbled letters: O T N P I O",
+            "question": "What word do the letters spell?",
+            "answer": "Potion",
+            "alternates": [
+              "potion",
+              "POTION"
+            ],
+            "hint": "It is what a witch stirs in her cauldron."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Marshmallow Hollow",
+    "premise": "On the night before Halloween, every piece of candy in Marshmallow Hollow floated out of the shops and houses and vanished into thin air! A sparkly trail of sprinkles and one loose bandage leads right up to the creaky front door of Hollow House.",
+    "ending": "All the monsters of Hollow House pop out and shout, 'Surprise!' Wrappy the Mummy explains that none of them had ever gone trick-or-treating, so they borrowed the town's candy to plan the best Trick-or-Treat Night ever and wanted to give it all back as gifts. Everyone laughs, the candy is shared with the whole town, and the monsters finally get to knock on doors in their costumes, collecting hugs and one giant bag of candy each.",
+    "rooms": [
+      {
+        "theme": "mummy",
+        "name": "The Dusty Pyramid Storeroom",
+        "description": "Sandy jars, old scrolls, and cobwebby treasure chests fill this pyramid-shaped room. A trail of sprinkles dusts the floor, and a candy wrapper peeks out from behind a golden cat statue.",
+        "unlock": "The golden cat statue pops open and out tumble sacks of chocolate coins and caramel chews! Tucked inside is a note that says, 'Sorry! This is for a BIG surprise. Signed, someone who loves parties.'",
+        "helper": {
+          "name": "Wrappy the Mummy",
+          "intro": "Oh, pardon me, hello! Do excuse my bandages, they keep unraveling, but I would love to help you!"
+        },
+        "puzzles": [
+          {
+            "type": "Egypt trivia",
+            "title": "The Long Blue River",
+            "clue": "Long ago, ancient Egyptians built their towns beside a very long river that gave them water for drinking and growing food. A) Nile  B) Pizza River  C) Moon River",
+            "question": "Which river flowed through ancient Egypt?",
+            "answer": "Nile",
+            "alternates": [
+              "A",
+              "the Nile"
+            ],
+            "hint": "It is the longest river in Africa, and it has a short four-letter name."
+          },
+          {
+            "type": "Unscramble",
+            "title": "The Jumbled Statue",
+            "clue": "Wrappy's scroll shows a giant statue with a lion's body and a person's head, and its name is all mixed up: H X S N I P",
+            "question": "Unscramble the letters to name this famous statue.",
+            "answer": "Sphinx",
+            "alternates": [
+              "the sphinx"
+            ],
+            "hint": "It sits near the Great Pyramids and is famous for asking riddles."
+          },
+          {
+            "type": "Put in order",
+            "title": "The Sandwich Snack",
+            "clue": "Wrappy is making a sandwich, but the steps are mixed up. Step 1: Eat the sandwich. Step 2: Put the bread on the plate. Step 3: Add cheese on the bread. Step 4: Put the top slice on.",
+            "question": "Which step number should Wrappy do first?",
+            "answer": "2",
+            "alternates": [
+              "two",
+              "step 2"
+            ],
+            "hint": "You cannot add cheese or eat anything until the bread is on the plate."
+          },
+          {
+            "type": "Riddle",
+            "title": "The Hands That Cannot Clap",
+            "clue": "A scroll on the wall says: I have two hands but I cannot clap, and I have a face but I cannot smile. I tick and I tock all day.",
+            "question": "What am I?",
+            "answer": "Clock",
+            "alternates": [
+              "a clock",
+              "clocks"
+            ],
+            "hint": "Look up at the wall, it tells you when it is snack time."
+          }
+        ]
+      },
+      {
+        "theme": "witch",
+        "name": "The Bubbling Cauldron Kitchen",
+        "description": "A big green cauldron glug-glugs in the middle of a crooked kitchen full of jars, spoons, and dangling herbs. The air smells like cinnamon and cherry candy, and tiny glittery footprints lead around the stove.",
+        "unlock": "The cauldron burps up a mountain of gummy worms and lollipops! A purple party invitation floats out with a handwritten line: 'Please come to the surprise, everyone is invited, even you!'",
+        "helper": {
+          "name": "Whiskers the Black Cat",
+          "intro": "Meow, hello, hello! I talk a LOT, so let me tell you everything I know while you cook up some answers!"
+        },
+        "puzzles": [
+          {
+            "type": "Potion math",
+            "title": "The Batty Brew",
+            "clue": "The witch's recipe says each potion needs 3 bat wings, and she is making 4 potions. After that, she adds 2 extra bat wings for sparkle.",
+            "question": "How many bat wings does she use in all?",
+            "answer": "14",
+            "alternates": [
+              "fourteen"
+            ],
+            "hint": "First multiply 3 times 4, then add the 2 extra wings."
+          },
+          {
+            "type": "Pattern",
+            "title": "The Doubling Bubbles",
+            "clue": "The cauldron blows bubbles in a pattern: 2, 4, 8, 16, and then the next bubble pops out with a number missing.",
+            "question": "What number comes next in the pattern?",
+            "answer": "32",
+            "alternates": [
+              "thirty-two",
+              "thirty two"
+            ],
+            "hint": "Each number is double the one before it."
+          },
+          {
+            "type": "Animal trivia",
+            "title": "The Night Watcher",
+            "clue": "A witch's pet sits on her shoulder at night. This real bird has big round eyes, sees very well in the dark, and says 'hoot hoot'. A) Goldfish  B) Owl  C) Cow",
+            "question": "Which animal is the night bird that says hoot?",
+            "answer": "Owl",
+            "alternates": [
+              "B",
+              "an owl",
+              "the owl"
+            ],
+            "hint": "It is not a fish and not a farm animal, it flies at night."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Cauldron Code",
+            "clue": "Whiskers wrote a secret code on the stove using A=1, B=2, C=3 and so on up to Z=26. The code says: 2, 18, 15, 15, 13.",
+            "question": "What word does the code spell? It is something a witch rides.",
+            "answer": "Broom",
+            "alternates": [
+              "a broom",
+              "BROOM"
+            ],
+            "hint": "B is 2, and M is 13. Count along the alphabet to check each number."
+          }
+        ]
+      },
+      {
+        "theme": "scarecrow",
+        "name": "The Moonlit Cornfield Maze",
+        "description": "Tall golden cornstalks rustle in the silvery moonlight, making twisty paths all around you. Candy corn is scattered along the ground like a glowing trail, and a long colorful banner hangs between two poles.",
+        "unlock": "The banner drops down to reveal a mountain of candy, and every piece is wrapped with a ribbon and a name tag! A sign reads: 'Happy Monster Trick-or-Treat Night! We have never been trick-or-treating before.'",
+        "helper": {
+          "name": "Strawberry the Scarecrow",
+          "intro": "H-hello there... I am a little shy, and I do not like crows, but I would be so happy to help you!"
+        },
+        "puzzles": [
+          {
+            "type": "Maze directions",
+            "title": "The Cornfield Path",
+            "clue": "The Cornfield Maze is a tiny square with four stops. The Well is top-left. The Pumpkins are top-right. The Gate is bottom-left. The Barn is bottom-right. Strawberry the scarecrow starts at the Gate. Follow the steps: 1) Go UP one stop. 2) Go RIGHT one stop. 3) Go DOWN one stop.",
+            "question": "Which stop do you end up at? Choose from: Gate, Well, Pumpkins, or Barn.",
+            "answer": "Barn",
+            "alternates": [
+              "the Barn",
+              "barn"
+            ],
+            "hint": "Start at the bottom-left Gate. Up takes you to the Well, right takes you to the Pumpkins, and down takes you to the last stop."
+          },
+          {
+            "type": "Harvest trivia",
+            "title": "The Dried Grass Snack",
+            "clue": "On a farm in the fall, farmers cut grass and dry it into big bundles to feed to cows and horses all winter. A) Hay  B) Candles  C) Sand",
+            "question": "What are the dried grass bundles called?",
+            "answer": "Hay",
+            "alternates": [
+              "A",
+              "hay bales"
+            ],
+            "hint": "Scarecrows often have this sticking out of their sleeves."
+          },
+          {
+            "type": "Sort it",
+            "title": "The Smallest Thing",
+            "clue": "Strawberry is looking at four things on the farm: a pumpkin, a corn kernel, a hay bale, and a barn.",
+            "question": "Which one is the smallest?",
+            "answer": "Kernel",
+            "alternates": [
+              "corn kernel",
+              "a corn kernel",
+              "the corn kernel"
+            ],
+            "hint": "It is just one tiny piece from a corn cob."
+          },
+          {
+            "type": "Count it",
+            "title": "The Cornstalk Count",
+            "clue": "The scarecrow's field has 3 rows of corn with 6 stalks in each row. A sneaky crow knocks down 4 stalks.",
+            "question": "How many cornstalks are still standing?",
+            "answer": "14",
+            "alternates": [
+              "fourteen"
+            ],
+            "hint": "Multiply 3 times 6 first, then take away 4."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing at Hollow House",
+    "premise": "On the night before Halloween, every piece of candy in Maple Town vanished, leaving only a trail of glittery sparkles on the sidewalk. The sparkly trail leads right up the creaky steps of Hollow House, and the front door is wide open. Time to follow the trail and solve the mystery!",
+    "ending": "Inside the secret room, Wisp, Nibs, Stitch, and all the monsters of Hollow House jump out and shout, 'Surprise!' They explain that they have never been trick-or-treating, because they were always too shy to knock on doors, so they borrowed the town's candy to throw their very first Halloween party. They are so sorry for not asking, and they invite everyone in Maple Town to share the candy together, with music, silly dances, and the biggest costume parade the town has ever seen. Everyone cheers, and next Halloween, the monsters will be the very first ones knocking on doors, with a big bag of candy to give away!",
+    "rooms": [
+      {
+        "theme": "ghost",
+        "name": "The Giggly Attic",
+        "description": "A dusty attic full of floating sheets that drift around like lazy clouds. In the corner sits a tiny paper wrapper with a sparkle on it, so the candy trail definitely passed through here.",
+        "unlock": "A hidden hatch pops open and you find a small pile of chocolate bars hiding behind a floating sheet! Wisp whispers, 'The one who took the candy has never been trick-or-treating before, I think...'",
+        "helper": {
+          "name": "Wisp the Ghost",
+          "intro": "Oh! H-hello... I'm Wisp, and I'm a little shy, but I'll help you if you promise not to laugh at my giggles!"
+        },
+        "puzzles": [
+          {
+            "type": "Odd one out",
+            "title": "Attic Clutter",
+            "clue": "Wisp floats past four things in the attic: Sheet, Pillow, Blanket, Hammer. Three of them are soft and cozy for sleeping under or on.",
+            "question": "Which one does not belong with the others?",
+            "answer": "Hammer",
+            "alternates": [
+              "hammer",
+              "the hammer"
+            ],
+            "hint": "Which one is hard and used for building, not for snuggling?"
+          },
+          {
+            "type": "Pattern",
+            "title": "Floating Sheet Counting",
+            "clue": "The ghost sheets float by in a pattern: 3, 6, 9, 12, and then the next one is missing.",
+            "question": "What number comes next in the pattern?",
+            "answer": "15",
+            "alternates": [
+              "fifteen"
+            ],
+            "hint": "Each number is 3 more than the one before it."
+          },
+          {
+            "type": "Missing word",
+            "title": "Doorbell Rhyme",
+            "clue": "Wisp whispers a famous Halloween phrase that kids say at every door: 'Trick or ___!'",
+            "question": "What word goes in the blank?",
+            "answer": "Treat",
+            "alternates": [
+              "treat",
+              "treats"
+            ],
+            "hint": "It is something yummy that you get at the door."
+          },
+          {
+            "type": "Halloween trivia",
+            "title": "Glowing Gourd",
+            "clue": "Wisp points at a glowing carved face in the window and asks a Halloween question. A) Pumpkin  B) Sock  C) Pillow",
+            "question": "What do people carve into a jack-o'-lantern?",
+            "answer": "Pumpkin",
+            "alternates": [
+              "pumpkin",
+              "A",
+              "a",
+              "a pumpkin"
+            ],
+            "hint": "It is big, round, and orange."
+          }
+        ]
+      },
+      {
+        "theme": "goblin",
+        "name": "The Glittery Treasure Cave",
+        "description": "A messy cave piled high with shiny junk, sparkly stones, and mountains of mismatched socks. A sticky trail of sparkles runs between the treasure piles, as if someone was in a big hurry carrying a heavy bag of sweets.",
+        "unlock": "Behind a pile of socks, a big bag spills out and you find handfuls of gummy worms and lollipops! Nibs giggles, 'Whoever took the candy was practicing for something big, like a party. They kept saying they wanted to learn how to knock on doors!'",
+        "helper": {
+          "name": "Nibs the Goblin",
+          "intro": "Hee hee! I'm Nibs, and I collect shiny buttons! Help me with these puzzles and I'll show you my best treasure!"
+        },
+        "puzzles": [
+          {
+            "type": "Rock trivia",
+            "title": "Volcano Surprise",
+            "clue": "Nibs shows you a hot red rock and asks about volcanoes. A) Pudding  B) Lava  C) Snow",
+            "question": "What is the hot, melted rock that flows out of a volcano called?",
+            "answer": "Lava",
+            "alternates": [
+              "lava",
+              "B",
+              "b"
+            ],
+            "hint": "It is very hot, glows orange and red, and flows downhill."
+          },
+          {
+            "type": "Logic puzzle",
+            "title": "Treasure Pile Showdown",
+            "clue": "Three goblins counted their treasure. Pip has more gems than Zog. Zog has more gems than Wix.",
+            "question": "Who has the fewest gems?",
+            "answer": "Wix",
+            "alternates": [
+              "wix",
+              "Wix has the fewest"
+            ],
+            "hint": "Line them up from most to fewest, and see who is last."
+          },
+          {
+            "type": "Money math",
+            "title": "Button Bank",
+            "clue": "Nibs has 3 purple buttons that are worth 4 coins each, and 1 gold button that is worth 8 coins.",
+            "question": "How many coins are all of Nibs's buttons worth together?",
+            "answer": "20",
+            "alternates": [
+              "twenty",
+              "20 coins"
+            ],
+            "hint": "First do 3 times 4, then add 8."
+          },
+          {
+            "type": "Unscramble",
+            "title": "Shiny Hoard Word",
+            "clue": "Nibs hoards a small, shiny, round thing that fastens a coat. The letters are all mixed up: T O N B U T",
+            "question": "What word do the jumbled letters spell?",
+            "answer": "Button",
+            "alternates": [
+              "button",
+              "buttons"
+            ],
+            "hint": "Goblins like Nibs love to collect these shiny little things."
+          }
+        ]
+      },
+      {
+        "theme": "monster",
+        "name": "The Bubbly Sparkle Lab",
+        "description": "A big lab full of bubbling jars, popping sparks, and wobbly tubes that glow green and purple. On the biggest table sits a huge, wobbly pile of candy wrappers, so the mystery must be almost solved.",
+        "unlock": "The lab door swings open to reveal a huge pile of candy, nearly every piece from Maple Town, hidden in a big, secret room! Stitch smiles and whispers, 'Come see, everyone is here, and we have a big surprise for you!'",
+        "helper": {
+          "name": "Stitch the Gentle Monster",
+          "intro": "Hello, friends! I'm Stitch, and my arms and legs don't match, but my heart is very big. Let's solve these puzzles together!"
+        },
+        "puzzles": [
+          {
+            "type": "Weather trivia",
+            "title": "After the Storm",
+            "clue": "Stitch looks out the lab window as the sun peeks out after a rainy storm. A) Spaghetti  B) Elephant  C) Rainbow",
+            "question": "What colorful arc can you sometimes see in the sky when the sun shines through rain?",
+            "answer": "Rainbow",
+            "alternates": [
+              "rainbow",
+              "C",
+              "c",
+              "a rainbow"
+            ],
+            "hint": "It has red, orange, yellow, green, blue, and purple stripes."
+          },
+          {
+            "type": "Put in order",
+            "title": "Potion Safety First",
+            "clue": "Stitch is making a bubbly potion, but the steps got mixed up: Stir the jar. Pour in the bubbly goo. Put on your safety goggles.",
+            "question": "Which step should come first? Name the thing you put on.",
+            "answer": "Goggles",
+            "alternates": [
+              "goggles",
+              "safety goggles",
+              "the goggles"
+            ],
+            "hint": "You should protect your eyes before you start mixing anything."
+          },
+          {
+            "type": "Secret code",
+            "title": "Sparky Message",
+            "clue": "A secret note on the wall uses a number code where A=1, B=2, C=3, and so on up to Z=26. The note says: 3 - 1 - 14 - 4 - 25",
+            "question": "What word does the secret code spell?",
+            "answer": "Candy",
+            "alternates": [
+              "candy"
+            ],
+            "hint": "Count along the alphabet to find each letter, like 3 is the third letter, C."
+          },
+          {
+            "type": "Count it",
+            "title": "Jar Counting",
+            "clue": "Stitch lined up 4 jars on each of 3 shelves, and then put 5 more jars on the floor.",
+            "question": "How many jars are there in all?",
+            "answer": "17",
+            "alternates": [
+              "seventeen",
+              "17 jars"
+            ],
+            "hint": "First multiply 4 by 3, then add 5."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Hollow House",
+    "premise": "On Halloween eve, every piece of candy in Maple Hollow poofed away in a swirl of sparkly purple smoke, leaving only a trail of tiny glittery wrappers. The trail leads right up the creaky steps of Hollow House, and it's up to you to follow it and find out where the sweets went!",
+    "ending": "The ghoul, the goblin, and the jack-o'-lantern admit they borrowed the candy because they had never been trick-or-treating and wanted to throw a party for the whole town. They are sorry they didn't ask first, and everyone laughs and forgives them right away. The townspeople arrive to find the cave and patch decorated with balloons and streamers, and the monsters hand out the candy to everyone. They all dance, share the sweets, and promise to go trick-or-treating together every Halloween from now on.",
+    "rooms": [
+      {
+        "theme": "ghoul",
+        "name": "The Glow-Shroom Crypt",
+        "description": "A cozy underground crypt lit by glowing mushrooms that hum soft little tunes. A neat pile of lost socks and buttons sits in the corner, and a single candy wrapper peeks out from under it.",
+        "unlock": "A hidden drawer pops open with a pile of lemon drops and a glittery wrapper. Tucked inside is a note: 'Sorry! I needed lots of candy for something special. Follow the shiny trail!'",
+        "helper": {
+          "name": "Tidy the Ghoul",
+          "intro": "Hello, friend! I keep this crypt neat and tidy, and I'd love to help you find the missing candy!"
+        },
+        "puzzles": [
+          {
+            "type": "What's missing",
+            "title": "The Lazy Calendar",
+            "clue": "Tidy keeps a calendar on the crypt wall, but one day has fallen off! It reads: Monday, Tuesday, Wednesday, ___, Friday, Saturday, Sunday.",
+            "question": "Which day of the week is missing?",
+            "answer": "Thursday",
+            "alternates": [
+              "thursday",
+              "Thurs"
+            ],
+            "hint": "It comes right after Wednesday and right before Friday."
+          },
+          {
+            "type": "Mushroom trivia",
+            "title": "Mushroom Moods",
+            "clue": "The glowing mushrooms whisper that they love certain places best. Where do mushrooms grow best? A) Damp, shady soil  B) Hot, dry sand  C) Frozen ice cubes",
+            "question": "Where do mushrooms grow best?",
+            "answer": "Damp",
+            "alternates": [
+              "A",
+              "damp soil",
+              "Damp shady soil"
+            ],
+            "hint": "Think about where you find mushrooms after a rainy day in the woods."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Button Code",
+            "clue": "A note is stuck to a sock in Tidy's pile. The code is A=1, B=2, C=3, and so on up to Z=26. The note says: 2 15 15.",
+            "question": "What word does the code spell?",
+            "answer": "BOO",
+            "alternates": [
+              "boo",
+              "Boo"
+            ],
+            "hint": "B is the 2nd letter and O is the 15th letter of the alphabet."
+          },
+          {
+            "type": "Matching pairs",
+            "title": "Sock and Button Sort",
+            "clue": "Tidy matches things that belong together: Key goes with Lock, Sock goes with Shoe, Pen goes with Paper. One lonely item has no partner: Button.",
+            "question": "Which item has no partner?",
+            "answer": "Button",
+            "alternates": [
+              "button",
+              "Buttons"
+            ],
+            "hint": "Three pairs are already matched, so look for the item that isn't in any pair."
+          }
+        ]
+      },
+      {
+        "theme": "goblin",
+        "name": "The Messy Treasure Cave",
+        "description": "A messy cave overflowing with shiny buttons, spoons, and sparkling gems tossed in every direction. Sticky footprints lead across the floor and pass a pile of candy wrappers folded into tiny party hats.",
+        "unlock": "A shiny chest creaks open and out pops a cloud of gummy bears and a party invitation with a smudged name. Giggles whispers, 'Someone round and glowy asked us to help gather the sweets, and it was for a surprise!'",
+        "helper": {
+          "name": "Giggles the Goblin",
+          "intro": "Hee hee! Welcome to my cave! I love shiny things, and I'll help you if you promise not to touch my buttons!"
+        },
+        "puzzles": [
+          {
+            "type": "Money math",
+            "title": "The Button Hoard",
+            "clue": "Giggles has 3 bags of shiny buttons with 4 buttons in each bag. Then she finds 5 more buttons under a rock and adds them to her pile.",
+            "question": "How many buttons does Giggles have in all?",
+            "answer": "17",
+            "alternates": [
+              "seventeen"
+            ],
+            "hint": "First multiply 3 times 4, then add 5."
+          },
+          {
+            "type": "Unscramble",
+            "title": "Jumbled Treasure",
+            "clue": "A goblin's favorite treasure got all mixed up! The letters are: N I O C S.",
+            "question": "What shiny treasure do the letters spell?",
+            "answer": "COINS",
+            "alternates": [
+              "coins",
+              "Coins"
+            ],
+            "hint": "You might spend these at a store, and they go clink in your pocket."
+          },
+          {
+            "type": "Rock trivia",
+            "title": "The Rumbly Mountain",
+            "clue": "A volcano outside the cave starts to rumble! What comes out of a volcano when it erupts? A) Lava  B) Spaghetti  C) Snowballs",
+            "question": "What comes out of an erupting volcano?",
+            "answer": "Lava",
+            "alternates": [
+              "A",
+              "lava",
+              "Hot lava"
+            ],
+            "hint": "It is very hot, glowing, and melted rock."
+          },
+          {
+            "type": "Pattern",
+            "title": "The Doubling Gems",
+            "clue": "Giggles lines up her gem piles to count them: 2, 4, 8, 16, and the next pile is hidden under a rock.",
+            "question": "What number comes next?",
+            "answer": "32",
+            "alternates": [
+              "thirty two",
+              "thirty-two"
+            ],
+            "hint": "Each pile is double the one before it."
+          }
+        ]
+      },
+      {
+        "theme": "pumpkin",
+        "name": "The Glowing Pumpkin Patch",
+        "description": "A glowing pumpkin patch where every pumpkin hums a happy tune under a big orange moon. At the far end, a table covered in balloons and streamers waits beside a giant pile of candy.",
+        "unlock": "The giant candy pile glows warmly, and Jack beams with a happy, wobbly smile. 'It was all of us! We had never been trick-or-treating, so we planned a big surprise party and invited the whole town.'",
+        "helper": {
+          "name": "Jack the Jack-o'-Lantern",
+          "intro": "Hi there, I'm Jack! I'm still hunting for the perfect carved face, but first, let's solve some puzzles!"
+        },
+        "puzzles": [
+          {
+            "type": "Plant trivia",
+            "title": "Thirsty Plants",
+            "clue": "Jack's pumpkin vines are sipping water from the soil. Which part of a plant drinks water from the ground? A) Roots  B) Petals  C) Pumpkins",
+            "question": "Which part of a plant drinks water from the soil?",
+            "answer": "Roots",
+            "alternates": [
+              "A",
+              "roots",
+              "Root"
+            ],
+            "hint": "This part grows underground and holds the plant in place."
+          },
+          {
+            "type": "Riddle",
+            "title": "The Tick-Tock Riddle",
+            "clue": "Jack asks a riddle: 'I have two hands but I can't clap. I have a face but I can't smile. I tell you when it's time for trick-or-treating.'",
+            "question": "What am I?",
+            "answer": "Clock",
+            "alternates": [
+              "clock",
+              "A clock",
+              "Watch"
+            ],
+            "hint": "Look at the wall or your wrist to tell the time."
+          },
+          {
+            "type": "Missing word",
+            "title": "The Halloween Greeting",
+            "clue": "Jack practices the phrase kids say when they knock on doors on Halloween night: 'Trick or ___!'",
+            "question": "What word fills the blank?",
+            "answer": "Treat",
+            "alternates": [
+              "treat",
+              "Treats"
+            ],
+            "hint": "It's the yummy part of the saying, and it comes in a bag."
+          },
+          {
+            "type": "Count it",
+            "title": "Pumpkin Picking",
+            "clue": "The patch has 4 rows of pumpkins with 6 pumpkins in each row. Jack picks 5 pumpkins to carve for the party.",
+            "question": "How many pumpkins are left in the patch?",
+            "answer": "19",
+            "alternates": [
+              "nineteen"
+            ],
+            "hint": "Multiply 4 times 6 first, then take away 5."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Candy Vanishing of Gumdrop Hollow",
+    "premise": "On Halloween morning, every piece of candy in the town of Gumdrop Hollow vanished, from the candy jars to the lollipop trees! A trail of sparkly sugar crumbs leads up the hill and straight through the creaky door of Hollow House.",
+    "ending": "The monsters took the candy because none of them had ever been trick-or-treating, and they wanted to throw a surprise Halloween party for the whole town. The witch stirred up a giant sweet stew, the vampire hung up the streamers, and the werewolf collected the candy in his big lumpy sack. When they said sorry for not asking first, the town laughed and said they were welcome to join the fun. Everyone shared the candy, danced under the moon, and the monsters finally got to go trick-or-treating at every door in Gumdrop Hollow.",
+    "rooms": [
+      {
+        "theme": "witch",
+        "name": "The Bubbling Kitchen",
+        "description": "A cozy kitchen full of jars, spoons, and a big green cauldron that bubbles and burps. A few sparkly sugar crumbs sit beside the stove, so the candy must have come this way!",
+        "unlock": "The door opens!",
+        "helper": {
+          "name": "Whiskers the Chatty Cat",
+          "intro": "Meow-hello! I never stop talking, so let me help you with these puzzles!"
+        },
+        "puzzles": [
+          {
+            "type": "Pattern",
+            "title": "The Doubling Bubbles",
+            "clue": "The cauldron blows bubbles in groups that follow a pattern: 2 bubbles, then 4 bubbles, then 8 bubbles, then 16 bubbles.",
+            "question": "How many bubbles come next in the pattern 2, 4, 8, 16, ___?",
+            "answer": "32",
+            "alternates": [
+              "thirty-two",
+              "thirty two"
+            ],
+            "hint": "Each number is double the one before it."
+          },
+          {
+            "type": "Unscramble",
+            "title": "The Jumbled Jar",
+            "clue": "The letters on the jar label got shaken up: O R B M O. It is something a witch loves to ride through the sky.",
+            "question": "What word do the letters spell when you put them in the right order?",
+            "answer": "broom",
+            "alternates": [
+              "a broom",
+              "the broom"
+            ],
+            "hint": "A witch sweeps the floor with it, and she also flies on it."
+          },
+          {
+            "type": "Secret code",
+            "title": "The Number Spell",
+            "clue": "The witch wrote a secret spell using the code A=1, B=2, C=3, and so on up to Z=26. The spell says 20-15-1-4.",
+            "question": "What word does the number code spell?",
+            "answer": "toad",
+            "alternates": [
+              "a toad",
+              "the toad"
+            ],
+            "hint": "Match each number to its letter: A is 1, so count along the alphabet for the others."
+          },
+          {
+            "type": "Animal trivia",
+            "title": "Night Eyes",
+            "clue": "A witch's black cat can see very well in the dark, which is great for midnight potion hunting. Which animal is famous for that? A) A cat  B) A rock  C) A shoe",
+            "question": "Which of these animals can see well in the dark?",
+            "answer": "cat",
+            "alternates": [
+              "A",
+              "a cat"
+            ],
+            "hint": "Whiskers the helper is one, and the other two are not even animals."
+          }
+        ]
+      },
+      {
+        "theme": "vampire",
+        "name": "The Candlelit Clock Hall",
+        "description": "A grand castle hall glows with a hundred flickering candles, and a giant clock ticks above a long red carpet. Tiny paper party streamers are tucked behind the clock, so someone was planning something fun!",
+        "unlock": "The door opens!",
+        "helper": {
+          "name": "Count Tomato the Vampire",
+          "intro": "Good evening! I only sip tomato juice, and I get a bit nervous in the dark, so please stay close!"
+        },
+        "puzzles": [
+          {
+            "type": "Night animal trivia",
+            "title": "The Upside-Down Sleeper",
+            "clue": "Something hangs upside down by its feet all day and zooms around the night sky eating bugs. Which animal is it? A) A bat  B) A rabbit  C) A turtle",
+            "question": "Which animal sleeps upside down and flies at night?",
+            "answer": "bat",
+            "alternates": [
+              "B",
+              "a bat",
+              "bats"
+            ],
+            "hint": "It has wings and is a favorite friend of vampires."
+          },
+          {
+            "type": "Mirror writing",
+            "title": "The Backwards Banner",
+            "clue": "A banner in the hall is written in a looking-glass way: ELTSAC. Hold it up to a mirror, or read it from right to left.",
+            "question": "What word does the banner say when you read it forwards?",
+            "answer": "castle",
+            "alternates": [
+              "a castle",
+              "the castle"
+            ],
+            "hint": "Start at the last letter, C, and read toward the first."
+          },
+          {
+            "type": "Riddle",
+            "title": "The Midnight Riddle",
+            "clue": "A whisper floats down from the tall tower in the hall: 'I have a round face and two skinny hands, but no arms or legs. I go tick, tick, tock all day and all night, and I tell everyone when midnight has come.'",
+            "question": "What am I?",
+            "answer": "clock",
+            "alternates": [
+              "a clock",
+              "the clock",
+              "wall clock"
+            ],
+            "hint": "Look at the tall thing in the hall that goes tick-tock and tells you the time."
+          },
+          {
+            "type": "Potion math",
+            "title": "The Tomato Juice Recipe",
+            "clue": "Count Tomato makes his favorite drink with 3 bottles, and each bottle needs 4 ripe tomatoes. Then he adds 5 extra tomatoes for the party.",
+            "question": "How many tomatoes does he use in all?",
+            "answer": "17",
+            "alternates": [
+              "seventeen"
+            ],
+            "hint": "First multiply 3 times 4, then add the 5 extra tomatoes."
+          }
+        ]
+      },
+      {
+        "theme": "werewolf",
+        "name": "The Moonlit Cabin",
+        "description": "A snug wooden cabin sits in a silvery forest where the moon peeks through the trees. Paw prints dusted with sugar lead across the floor, and a lumpy sack sits by the fireplace.",
+        "unlock": "The door opens!",
+        "helper": {
+          "name": "Fuzzy the Werewolf",
+          "intro": "Awooo-oops, that note was off-key again! I am super fluffy and super friendly, so let us solve these together!"
+        },
+        "puzzles": [
+          {
+            "type": "Moon trivia",
+            "title": "The Moon's Bowls",
+            "clue": "The moon is covered in big round bowl-shaped holes made long ago when space rocks bumped into it. What are these holes called? A) Craters  B) Pancakes  C) Windows",
+            "question": "What are the bowl-shaped holes on the moon called?",
+            "answer": "craters",
+            "alternates": [
+              "A",
+              "crater",
+              "a crater"
+            ],
+            "hint": "The word sounds a bit like crates, with an r and an s."
+          },
+          {
+            "type": "Track it",
+            "title": "The Tiny Hand Prints",
+            "clue": "Fuzzy found small footprints by the cabin that look like tiny hands with five long fingers. The animal that made them wears a black mask and loves to wash its food. Is it a raccoon, a duck, or a snake?",
+            "question": "Which animal made the footprints?",
+            "answer": "raccoon",
+            "alternates": [
+              "a raccoon",
+              "the raccoon"
+            ],
+            "hint": "Ducks have webbed feet and snakes have no feet, so only one animal has hand-like paws and a mask."
+          },
+          {
+            "type": "Rhyme time",
+            "title": "The Moon Spoon",
+            "clue": "Fuzzy is hungry for dinner. He is thinking of something you hold in your hand to eat soup, and its name rhymes with moon.",
+            "question": "What word rhymes with moon and is used to eat soup?",
+            "answer": "spoon",
+            "alternates": [
+              "a spoon",
+              "the spoon"
+            ],
+            "hint": "It is not a fork, and it is shaped like a little bowl on a handle."
+          },
+          {
+            "type": "Sound pattern",
+            "title": "The Howling Song",
+            "clue": "Fuzzy sings a counting song under the moon. First he howls 1 time. Then he howls 2 times. Then he howls 3 times. Each verse, he howls exactly one more time than the verse before.",
+            "question": "Following the pattern, how many times will Fuzzy howl in the next verse?",
+            "answer": "4",
+            "alternates": [
+              "four",
+              "4 times"
+            ],
+            "hint": "Look at how many howls were in each verse: 1, 2, 3. What number comes after 3?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Great Gumdrop Hollow Candy Vanishing",
+    "premise": "On Halloween eve, every piece of candy in Gumdrop Hollow floated out of the bowls and drifted away in a sparkly, sugary breeze. A trail of shiny wrappers leads right up to the crooked front door of Hollow House, and you are the town's best detective.",
+    "ending": "The monsters tumble out, blushing, and admit they took the candy! They had never been trick-or-treating, so they planned a surprise Halloween party and wanted to share sweets with the whole town. Fuzzy howls a happy (off-key) song, Stitches smiles under his hat, and Gourdie finally picks the perfect face: a big happy grin. Everyone shares the candy, plays games, and promises to trick-or-treat together every year.",
+    "rooms": [
+      {
+        "theme": "werewolf",
+        "name": "The Moonlit Cabin",
+        "description": "A cozy log cabin sits in a silver forest, with a big round moon peeking through the window. Fluffy fur and a few lollipop sticks are scattered on the rug.",
+        "unlock": "The cabin door pops open and a pile of gumdrops tumbles out! A note tucked in the fur says, \"We borrowed the candy for a big plan. Follow the corn!\"",
+        "helper": {
+          "name": "Fuzzy the Werewolf",
+          "intro": "Awoooo-ops, I mean hello! I howl off-key, but I'm great at helping detectives!"
+        },
+        "puzzles": [
+          {
+            "type": "Missing word",
+            "title": "The Early Bird",
+            "clue": "Fuzzy scratches a famous saying on the cabin wall, but one word is chewed off: \"The early bird catches the ___.\"",
+            "question": "What word fills the blank?",
+            "answer": "worm",
+            "alternates": [
+              "worms"
+            ],
+            "hint": "It's what a robin pulls out of the soil for breakfast."
+          },
+          {
+            "type": "Sound pattern",
+            "title": "Howl Song",
+            "clue": "Fuzzy sings a pattern again and again: howl, howl, yip, howl, howl, yip, howl, howl, ___.",
+            "question": "What sound comes next in the song?",
+            "answer": "yip",
+            "alternates": [
+              "Yip"
+            ],
+            "hint": "Look at what comes after every pair of howls."
+          },
+          {
+            "type": "Moon trivia",
+            "title": "Moon Glow",
+            "clue": "A silver moon hangs outside the window, and Fuzzy wonders why it shines. Why does the moon glow in the night sky? A) It reflects sunlight  B) It has giant light bulbs  C) It is covered in fireflies",
+            "question": "Why does the moon glow?",
+            "answer": "reflects",
+            "alternates": [
+              "A",
+              "reflects sunlight",
+              "it reflects sunlight"
+            ],
+            "hint": "The moon has no light of its own, it bounces light from our star."
+          },
+          {
+            "type": "Track it",
+            "title": "Muddy Footprints",
+            "clue": "Outside the door are footprints with three wide toes joined by thin skin, like flat little paddles. The animals are: duck, rabbit, bear.",
+            "question": "Which animal made the footprints?",
+            "answer": "duck",
+            "alternates": [
+              "a duck",
+              "Duck"
+            ],
+            "hint": "Skin between the toes helps this animal paddle in ponds."
+          }
+        ]
+      },
+      {
+        "theme": "scarecrow",
+        "name": "The Moonlit Corn Maze",
+        "description": "Tall golden corn rustles around you in a twisty maze lit by the moon. Candy wrappers hang from the stalks like tiny party decorations.",
+        "unlock": "The corn parts to reveal a basket of chocolate bars! Stitches whispers, \"The monsters were making a list of guests... and a very big banner.\"",
+        "helper": {
+          "name": "Stitches the Scarecrow",
+          "intro": "H-hello... please keep an eye out for crows, but I'll gladly help you!"
+        },
+        "puzzles": [
+          {
+            "type": "Harvest trivia",
+            "title": "Autumn Crops",
+            "clue": "Stitches looks over the field and asks which of these farmers pick in autumn. A) Pumpkins  B) Marbles  C) Sneakers",
+            "question": "Which one do farmers harvest in autumn?",
+            "answer": "pumpkins",
+            "alternates": [
+              "A",
+              "pumpkin"
+            ],
+            "hint": "Only one of the choices grows on a vine in a field."
+          },
+          {
+            "type": "Maze directions",
+            "title": "The Field Map",
+            "clue": "The maze is a 3 by 3 grid. Top row, left to right: Barn, Hill, Pond. Middle row: Hay, Center, Well. Bottom row: Gate, Apples, Mud. You start at the Gate (bottom-left). Go up 2 squares, then right 2 squares, then down 1 square.",
+            "question": "Which place do you end up at: Barn, Hill, Pond, Hay, Center, Well, Gate, Apples, or Mud?",
+            "answer": "Well",
+            "alternates": [
+              "well",
+              "the well"
+            ],
+            "hint": "After going up and right you reach the top-right corner, then step down once."
+          },
+          {
+            "type": "Pattern",
+            "title": "Corn Counting",
+            "clue": "Stitches has been stacking ears of corn in a pattern: 3, 6, 12, 24, ___.",
+            "question": "What number comes next?",
+            "answer": "48",
+            "alternates": [
+              "forty-eight"
+            ],
+            "hint": "Each number is double the one before it."
+          },
+          {
+            "type": "Count it",
+            "title": "Stalks of Corn",
+            "clue": "The cornfield has 5 rows with 7 stalks in each row. Stitches nibbles on 3 stalks for a snack.",
+            "question": "How many stalks are left?",
+            "answer": "32",
+            "alternates": [
+              "thirty-two"
+            ],
+            "hint": "Multiply 5 times 7 first, then subtract 3."
+          }
+        ]
+      },
+      {
+        "theme": "pumpkin",
+        "name": "The Glowing Pumpkin Patch",
+        "description": "Hundreds of pumpkins glow orange in the dark, each with a different goofy face. Party streamers and balloons are tangled in the vines.",
+        "unlock": "The last pumpkin lid pops off and all the remaining candy is inside, tied with a ribbon! A card reads, \"For the guests of honor: the whole town.\"",
+        "helper": {
+          "name": "Gourdie the Jack-o'-lantern",
+          "intro": "Hi there! I'm still searching for my perfect carved face, so help me and I'll help you!"
+        },
+        "puzzles": [
+          {
+            "type": "Riddle",
+            "title": "The Lucky Piece",
+            "clue": "Gourdie grins and asks: \"What has a head and a tail, but no body?\"",
+            "question": "What is it?",
+            "answer": "coin",
+            "alternates": [
+              "a coin",
+              "Coin",
+              "penny"
+            ],
+            "hint": "You might flip one to make a choice."
+          },
+          {
+            "type": "Shape puzzle",
+            "title": "Triangle Face",
+            "clue": "Gourdie's carved face has 2 triangle eyes and 1 triangle nose, and nothing else. Every triangle has 3 corners.",
+            "question": "How many corners are there on all the triangles together?",
+            "answer": "9",
+            "alternates": [
+              "nine"
+            ],
+            "hint": "Count the triangles, then multiply by 3."
+          },
+          {
+            "type": "Unscramble",
+            "title": "Twisty Plants",
+            "clue": "The letters on this pumpkin are jumbled: S E N I V. They spell something pumpkins grow on across the ground.",
+            "question": "What word do the letters spell?",
+            "answer": "vines",
+            "alternates": [
+              "Vines",
+              "vine"
+            ],
+            "hint": "Pumpkins crawl along these long green stems."
+          },
+          {
+            "type": "Plant trivia",
+            "title": "Sunny Growing",
+            "clue": "The pumpkins stretch toward the sky. What do plants need from the sun to grow? A) Light  B) Pizza  C) Music",
+            "question": "What do plants need from the sun?",
+            "answer": "light",
+            "alternates": [
+              "A",
+              "sunlight"
+            ],
+            "hint": "Plants use it to make their own food."
+          }
+        ]
+      }
+    ]
+  }
+]

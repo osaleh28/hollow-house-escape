@@ -4,9 +4,21 @@ A kid-friendly Halloween escape room built with **Next.js** and the **Claude API
 
 All of Pumpkin Hollow's candy has vanished, and the trail leads to the old house on the hill. Players solve 4 puzzles in each of 3 monster rooms to follow the clues and find out who took it, and why.
 
-- **AI feature 1, "Make a new house":** Claude invents a whole new mystery with a surprise mix of 3 monster rooms and 12 puzzles, at the age level you pick.
-- **AI feature 2, "Ask your helper":** each room's character (Puff the Ghost, Midnight the Cat, Gus the Zombie…) gives gentle hints in chat.
-- The built-in sample house plays with no API key at all.
+- **The AI feature, "Ask your helper":** each room's character (Puff the Ghost, Midnight the Cat, Gus the Zombie…) gives gentle hints in chat.
+- **A different house every visit:** each page load picks a house from the library that this browser hasn't played yet, and the **New house** button picks another. Once every house has been played, the list starts over.
+- The puzzles, hints and doors all work with no API key at all.
+
+## The house library (`data/houses.json`)
+
+Claude built the houses ahead of time with the same pipeline described below (plan → generate → validate → code checks → AI tester → repair). Only houses that passed every check were saved. So players get variety with **no wait and no AI cost**; the only live AI call while playing is the helper.
+
+```bash
+npm run library                      # add 15 more houses (about 5¢ each, needs your key in .env.local)
+npm run library -- --n 5             # add fewer
+npm run library -- --max-usd 0.50    # hard budget for this run
+```
+
+The game uses the built-in sample house plus everything in `data/houses.json` (`lib/library.ts`). Running the script again adds to the library and skips repeated titles.
 
 ## Monsters and puzzle types (the surprise mix)
 
@@ -100,7 +112,7 @@ The AI tester (`SYSTEM_SOLVER`) and repair (`SYSTEM_REPAIR`) prompts are also in
 
 - **Hard daily spend cap** for the whole app (`DAILY_SPEND_CAP_USD`, default $2). Before each call, the server checks the call's *worst case* (input estimate + full `max_tokens`), so no call can push spending past the cap.
 - **Real cost tracking.** The server records the `usage` token counts the API returns and prices them (Sonnet 5.5: $2 / $10, Haiku 5.5: $0.10 / $0.50 per million input / output tokens).
-- **`max_tokens` on every call:** 4,096 for a house, 120 for a helper reply.
+- **`max_tokens` on every call:** 6,000 for a house, 120 for a helper reply.
 - **Right-sized models:** Sonnet 5.5 for house generation, the much cheaper Haiku 5.5 for chat.
 - **Per-visitor limits:** 5 new houses and 60 helper questions per day, and 5 questions per room.
 - **Free when blocked:** guardrail blocks happen before the API call.
@@ -198,7 +210,7 @@ Scripts need **Node 22.9 or newer**.
 app/
   page.tsx               → renders the game
   layout.tsx, globals.css
-  api/house/route.ts     → POST: build a new house (runs the pipeline)
+  api/house/route.ts     → POST: build a new house live (not used by the game; the library is built ahead of time)
   api/helper/route.ts    → POST: helper chat reply
   api/usage/route.ts     → GET: today's spend vs. cap
 components/
@@ -213,7 +225,11 @@ lib/
   pipeline.ts            → generate → validate → check → repair → recheck
   checks.ts              → exact code checks for decodable puzzles
   ai.ts                  → Anthropic client, error mapping
+  library.ts             → every house the game can pick from (sample + data/houses.json)
+  sorry.ts               → Halloween-themed error messages
+data/houses.json            → the house library, built by npm run library
 scripts/check-guardrails.ts → guardrail and planner self-tests
 scripts/check-checks.ts     → code-check self-tests
 scripts/eval.ts             → the evaluation (real or --mock)
+scripts/build-library.ts    → builds checked houses into data/houses.json
 ```

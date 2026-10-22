@@ -10,7 +10,8 @@
     "test:guardrails": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning scripts/check-guardrails.ts",
     "test:checks": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning scripts/check-checks.ts",
     "test": "npm run test:guardrails && npm run test:checks",
-    "eval": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning --env-file-if-exists=.env.local scripts/eval.ts"
+    "eval": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning --env-file-if-exists=.env.local scripts/eval.ts",
+    "library": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning --env-file-if-exists=.env.local scripts/build-library.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.60.0",

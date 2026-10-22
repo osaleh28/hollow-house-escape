@@ -32,7 +32,7 @@ export const LIMITS = {
   housesPerVisitorPerDay: num(process.env.HOUSES_PER_VISITOR_PER_DAY, 5),
   helperPerVisitorPerDay: num(process.env.HELPER_QUESTIONS_PER_VISITOR_PER_DAY, 60),
   helperPerRoom: 5,
-  houseMaxTokens: 4096, // a full house is ~2,000-3,000 output tokens
+  houseMaxTokens: 6000, // a full house is ~2,900-4,500 output tokens
   helperMaxTokens: 120, // 1-2 sentences
   houseInputEstimate: 3500, // system prompt + room plan + tool schema
   helperInputEstimate: 900,
