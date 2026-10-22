@@ -101,6 +101,15 @@ export function validateHouse(h: unknown, plan?: RoomPlan[]): string[] {
         // Trivia is multiple choice, so the answer must be one of the listed choices.
         if (!/\bA\)/.test(text) || !/\bB\)/.test(text) || !/\bC\)/.test(text)) p.push(`${where} trivia needs choices A), B) and C)`);
         if (!norm(text).includes(a)) p.push(`${where} trivia answer isn't one of the choices`);
+        // The accepted letter must be the answer's own choice; a wrong one marks right answers wrong and wrong ones right.
+        const choices = [...String(z?.clue ?? "").matchAll(/\b([ABC])\)\s*(.*?)(?=\s+[ABC]\)|$)/g)].map((m) => ({ letter: m[1], text: norm(m[2]) }));
+        const right = choices.filter((c) => a && (c.text === a || c.text.includes(a)));
+        if (right.length === 1) {
+          const letters = (z.alternates || []).map((x) => String(x).trim().toUpperCase()).filter((x) => /^[ABC]$/.test(x));
+          if (letters.some((l) => l !== right[0].letter))
+            p.push(`${where} trivia accepts the wrong letter: the answer "${z.answer}" is choice ${right[0].letter}`);
+          else if (!letters.length) p.push(`${where} trivia is missing its letter: add "${right[0].letter}" to alternates`);
+        }
       } else if (LISTED_ANSWER_TYPES.has(type)) {
         if (!norm(text).includes(a)) p.push(`${where} answer isn't one of the listed items`);
         // Listing the answer is fine, but saying which one it is ("no partner: Hat") leaves nothing to solve.

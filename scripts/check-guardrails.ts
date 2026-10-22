@@ -49,6 +49,13 @@ expect("rejects trivia without A/B/C choices", validateHouse(noChoices).some((p)
 const wrongChoice = structuredClone(SAMPLE_HOUSE);
 wrongChoice.rooms[2].puzzles[3].answer = "pebbles";
 expect("rejects trivia whose answer isn't a choice", validateHouse(wrongChoice).some((p) => p.includes("isn't one of the choices")));
+const batTrivia = (alternates: string[]) => {
+  const h = structuredClone(SAMPLE_HOUSE);
+  Object.assign(h.rooms[0].puzzles[1], { clue: "What hangs upside down and flies at night? A) A bat  B) A rabbit  C) A turtle", answer: "bat", alternates });
+  return validateHouse(h);
+};
+expect("rejects trivia that accepts the wrong letter (bat is A, not B)", batTrivia(["B", "a bat"]).some((p) => p.includes("accepts the wrong letter")));
+expect("accepts trivia whose letter matches the answer's choice", !batTrivia(["A", "a bat"]).some((p) => p.includes("letter")));
 const t = guardHelperReply("Bats hang from a ceiling. Is it upside down?", SAMPLE_HOUSE.rooms[1]).text;
 expect("redacts a trivia answer but leaves the word 'a' alone", t.includes(" a ceiling") && !/upside down/i.test(t));
 const scary = structuredClone(SAMPLE_HOUSE);
