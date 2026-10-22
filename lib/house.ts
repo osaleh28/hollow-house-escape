@@ -151,7 +151,7 @@ export function cleanRoom(r: Room): Room {
       clue: S(z.clue, CLUE_MAX),
       question: S(z.question, 200),
       answer: S(z.answer, 24),
-      alternates: (z.alternates || []).slice(0, 5).map((a) => S(a, 20)),
+      alternates: (z.alternates || []).slice(0, 8).map((a) => S(a, 40)), // room for whole steps, e.g. "put the bread on the plate"
       hint: S(z.hint, 200),
     })),
   };

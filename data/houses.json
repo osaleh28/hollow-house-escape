@@ -1176,7 +1176,11 @@
             "answer": "2",
             "alternates": [
               "two",
-              "step 2"
+              "step 2",
+              "put the bread on the plate",
+              "put bread on the plate",
+              "put bread on plate",
+              "bread on the plate"
             ],
             "hint": "You cannot add cheese or eat anything until the bread is on the plate."
           },
