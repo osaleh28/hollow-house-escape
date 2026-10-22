@@ -40,10 +40,7 @@ h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(30px, 6vw
 .candy { display: flex; align-items: center; gap: 10px; background: var(--sky-2); border: 2px solid var(--line); border-radius: 999px; padding: 6px 16px 6px 8px; }
 .candy svg { width: 34px; height: 34px; }
 .candy b { font-family: var(--f-display); font-size: 26px; font-variant-numeric: tabular-nums; color: var(--pumpkin); }
-.candy span, .ai-meter span { font-size: 13px; color: var(--dim); }
-.ai-meter { display: flex; align-items: center; gap: 8px; background: var(--sky-2); border: 2px solid var(--line); border-radius: 999px; padding: 8px 14px; }
-.bar { width: 80px; height: 8px; border-radius: 4px; background: var(--sky-3); overflow: hidden; }
-.bar > i { display: block; height: 100%; background: var(--zombie); transition: width .4s; }
+.candy span { font-size: 13px; color: var(--dim); }
 .pop { animation: pop .4s; }
 @keyframes pop { 50% { transform: scale(1.25); } }
 

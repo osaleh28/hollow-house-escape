@@ -6,7 +6,6 @@ import { checkInput, cleanInput, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { isCorrect, SAMPLE_HOUSE, type House, type Puzzle } from "@/lib/house.ts";
 import { THEME_IDS, THEMES, type Theme } from "@/lib/themes.ts";
 import type { AgeLevel } from "@/lib/prompts.ts";
-import type { UsageSnapshot } from "@/lib/cost.ts";
 import { sorry } from "@/lib/sorry.ts";
 
 const HELPER_WAIT_MS = 20_000; // the browser gives up on a hint after this, even if the server hasn't answered
@@ -45,7 +44,6 @@ export default function Game() {
   const [isSample, setIsSample] = useState(true);
   const [g, setG] = useState<GameState>(fresh);
   const [chat, setChat] = useState<ChatMsg[]>([]);
-  const [usage, setUsage] = useState<UsageSnapshot | null>(null);
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [modal, setModal] = useState<Modal | null>(null);
   const [age, setAge] = useState<AgeLevel>("8-10");
@@ -77,10 +75,7 @@ export default function Game() {
     loaded.current = true;
     fetch("/api/usage")
       .then((r) => r.json())
-      .then((d) => {
-        setUsage(d.usage);
-        setConfigured(!!d.configured);
-      })
+      .then((d) => setConfigured(!!d.configured))
       .catch(() => setConfigured(false));
   }, []);
   useEffect(() => {
@@ -160,7 +155,6 @@ export default function Game() {
         signal: ctl.signal,
       });
       const d = await readReply(res);
-      if (d.usage) setUsage(d.usage);
       if (d.ok) {
         setHouse(d.house);
         setIsSample(false);
@@ -224,7 +218,6 @@ export default function Game() {
         signal: AbortSignal.timeout(HELPER_WAIT_MS),
       });
       const d = await readReply(res);
-      if (d.usage) setUsage(d.usage);
       if (d.ok) {
         push("helper", d.reply);
         if (d.blocked) addLog(`Server blocked a helper question: it ${d.reason}.`, "block");
@@ -242,7 +235,6 @@ export default function Game() {
   }
 
   const aiReady = configured !== false;
-  const remainingPct = usage?.remainingPct ?? 100;
 
   return (
     <div className="wrap">
@@ -256,11 +248,6 @@ export default function Game() {
             <CandyIcon />
             <b key={candyPop} className={candyPop ? "pop" : ""}>{g.candy}</b>
             <span>candies found</span>
-          </div>
-          <div className="ai-meter" title="How much of today's AI budget is left">
-            <span>AI energy</span>
-            <div className="bar"><i style={{ width: `${remainingPct}%` }} /></div>
-            <span>{remainingPct}%</span>
           </div>
         </div>
       </header>

@@ -105,7 +105,7 @@ The AI tester (`SYSTEM_SOLVER`) and repair (`SYSTEM_REPAIR`) prompts are also in
 - **Per-visitor limits:** 5 new houses and 60 helper questions per day, and 5 questions per room.
 - **Free when blocked:** guardrail blocks happen before the API call.
 - **Graceful when the cap is hit:** the AI buttons stop, and the game keeps working.
-- **Live meter:** the "AI energy" meter at the top of the game shows how much of today's budget is left. For the exact numbers (spend vs. cap, tokens, calls by type), open `http://localhost:3000/api/usage`.
+- **Live numbers:** open `http://localhost:3000/api/usage` to see today's spend against the cap, tokens used, and calls by type.
 
 > The spend ledger is kept in server memory, which is right for a demo or a single server. On serverless hosting, each instance keeps its own copy and it resets on cold start. For production, back it with Redis or Vercel KV. The `store()` function in `lib/cost.ts` is the only thing to change.
 

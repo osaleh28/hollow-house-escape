@@ -1,4 +1,4 @@
-// GET /api/usage — today's AI spending against the cap, for the meter in the game.
+// GET /api/usage — whether the AI is set up, and today's AI spending against the cap.
 
 import { json } from "@/lib/ai.ts";
 import { snapshot } from "@/lib/cost.ts";
