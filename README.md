@@ -2,6 +2,10 @@
 
 A kid-friendly Halloween escape room built with **Next.js** and the **Claude API**.
 
+**🎃 Play it: [hollow-house-escape.onrender.com](https://hollow-house-escape.onrender.com/)**
+
+> Hosted on Render's free plan, so the site sleeps when nobody is using it. If it's slow to open, give it 30-60 seconds to wake up.
+
 All of Pumpkin Hollow's candy has vanished, and the trail leads to the old house on the hill. Players solve 4 puzzles in each of 3 monster rooms to follow the clues and find out who took it, and why.
 
 - **The AI feature, "Ask your helper":** each room's character (Puff the Ghost, Midnight the Cat, Gus the Zombie…) gives gentle hints in chat.
