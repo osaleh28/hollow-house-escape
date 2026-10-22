@@ -259,21 +259,6 @@ export default function Game() {
         <button className="btn soft" onClick={restart}>Start this house over</button>
       </section>
 
-      <nav className="doors" aria-label="Rooms">
-        {house.rooms.map((r, i) => {
-          const done = roomSolved(i), here = i === g.room && !g.won;
-          return (
-            <div key={i} className={`door${done ? " done" : ""}${here ? " here" : ""}${!done && !here ? " locked" : ""}`} style={tone(r.theme)}>
-              <ThemeIcon theme={r.theme} />
-              <div>
-                <div className="dn">{r.name}</div>
-                <div className="ds">{done ? "Unlocked!" : here ? "You are here" : "Locked"}</div>
-              </div>
-            </div>
-          );
-        })}
-      </nav>
-
       <section className="conjure" aria-label="Make a new house">
         <div className="field">
           <label htmlFor="age">Puzzle level</label>
@@ -292,6 +277,21 @@ export default function Game() {
           {configured === false ? "The AI isn't set up on this server yet (missing API key). The sample house is ready to play!" : note.text}
         </p>
       </section>
+
+      <nav className="doors" aria-label="Rooms">
+        {house.rooms.map((r, i) => {
+          const done = roomSolved(i), here = i === g.room && !g.won;
+          return (
+            <div key={i} className={`door${done ? " done" : ""}${here ? " here" : ""}${!done && !here ? " locked" : ""}`} style={tone(r.theme)}>
+              <ThemeIcon theme={r.theme} />
+              <div>
+                <div className="dn">{r.name}</div>
+                <div className="ds">{done ? "Unlocked!" : here ? "You are here" : "Locked"}</div>
+              </div>
+            </div>
+          );
+        })}
+      </nav>
 
       <div className="stage" style={tone(room.theme)}>
         <article className="panel room">
