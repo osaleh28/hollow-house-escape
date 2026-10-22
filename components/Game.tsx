@@ -68,11 +68,13 @@ export default function Game() {
   const [asking, setAsking] = useState(false);
   const [candyPop, setCandyPop] = useState(0);
   const chatRef = useRef<HTMLDivElement>(null);
+  const questionRef = useRef<HTMLInputElement>(null);
 
   const room = house.rooms[g.room];
   const roomSolved = (i: number) => house.rooms[i].puzzles.every((_, p) => g.solved[key(i, p)]);
   const solvedCount = room.puzzles.filter((_, p) => g.solved[key(g.room, p)]).length;
   const askedHere = g.asked[g.room] ?? 0;
+  const helperName = (room.helper?.name || "your helper").split(" the ")[0]; // "Stitches the Scarecrow" → "Stitches"
 
   // Every page load gets a different house, and we check whether the AI helper is set up.
   useEffect(() => {
@@ -114,6 +116,11 @@ export default function Game() {
     setG(fresh());
     setChat([]);
     setModal(null);
+  }
+  /** The "Ask" button in the room header: on phones the chat is below the puzzles, so scroll to it. */
+  function goToHelper() {
+    document.getElementById("helper")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    questionRef.current?.focus({ preventScroll: true });
   }
   function newHouse() {
     setHouse(pickHouse(house.title));
@@ -251,6 +258,7 @@ export default function Game() {
               <div className="kicker">{kicker(g.room, room.theme)}</div>
               <h2>{room.name}</h2>
             </div>
+            <button className="btn soft ask-chip" onClick={goToHelper}>💬 Ask {helperName}</button>
           </div>
           <p className="desc">{room.description}</p>
           <div className="progress">
@@ -278,15 +286,18 @@ export default function Game() {
         </article>
 
         <div className="side">
-          <aside className="panel">
+          <aside className="panel" id="helper">
             <h3 className="ph">{room.helper.name}</h3>
-            <p className="small">{room.helper.intro}</p>
             <div className="chat" ref={chatRef} aria-live="polite">
+              {/* A greeting written by the game (not the AI), so every room says who can help and how much. */}
+              <div className="bubble helper">
+                {room.helper.intro} I&apos;m {helperName}, your helper in this room. Stuck on a puzzle? Ask me! You get {HELPER_PER_ROOM} questions here.
+              </div>
               {chat.filter((m) => m.room === g.room).map((m, i) => <div key={i} className={`bubble ${m.who}`}>{m.text}</div>)}
               {asking && <div className="bubble helper">…</div>}
             </div>
             <form className="row" onSubmit={ask}>
-              <input id="question" type="text" maxLength={INPUT_LIMITS.questionChars} autoComplete="off" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="I'm stuck on the riddle…" aria-label="Question for the helper" />
+              <input ref={questionRef} id="question" type="text" maxLength={INPUT_LIMITS.questionChars} autoComplete="off" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="I'm stuck on the riddle…" aria-label="Question for the helper" />
               <button className="btn room" type="submit" disabled={asking || askedHere >= HELPER_PER_ROOM}>Ask</button>
             </form>
             <p className="small">
