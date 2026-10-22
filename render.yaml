@@ -1,0 +1,18 @@
+# Render Blueprint: Render reads this to set up the web service (New → Blueprint → pick this repo).
+# The API key is NOT stored here: Render asks for it when you create the service.
+services:
+  - type: web
+    name: hollow-house-escape
+    runtime: node
+    plan: free # "starter" keeps the app awake, so the in-memory $2/day cap never resets mid-day
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/usage
+    autoDeploy: true # every push to main redeploys
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ANTHROPIC_API_KEY
+        sync: false # entered in the Render dashboard, never committed
+      - key: DAILY_SPEND_CAP_USD
+        value: "2"

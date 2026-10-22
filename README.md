@@ -58,12 +58,16 @@ Run the tests without spending anything:
 npm test
 ```
 
-## Deploy (Vercel)
+## Deploy (Render)
 
-1. Push the folder to GitHub (`.env.local` is git-ignored, so your key stays private).
-2. Import the repo in Vercel.
-3. Add `ANTHROPIC_API_KEY` (and optionally `DAILY_SPEND_CAP_USD`) under Project → Settings → Environment Variables.
-4. Deploy.
+The repo includes a `render.yaml` Blueprint with every setting filled in.
+
+1. Set a monthly **spend limit** on your API key in the Anthropic Console first. The in-app $2/day cap lives in server memory and resets when the app restarts (or wakes up, on Render's free plan); the account spend limit is the hard backstop.
+2. On render.com: **New → Blueprint**, pick this repo.
+3. When asked, paste your `ANTHROPIC_API_KEY`. It's stored by Render, never in the repo (`.env.local` is git-ignored).
+4. Click **Apply**. Every push to `main` redeploys.
+
+The free plan sleeps after about 15 idle minutes, so the first visit after that takes 30-60 seconds. Switch `plan: free` to `starter` in `render.yaml` to keep it awake.
 
 ## How it meets the requirements
 
