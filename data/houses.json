@@ -181,7 +181,9 @@
             "answer": "3",
             "alternates": [
               "three",
-              "step 3"
+              "step 3",
+              "find the candy",
+              "find candy"
             ],
             "hint": "You have to find the candy before you can do anything else with it."
           }
@@ -307,7 +309,10 @@
             "answer": "3",
             "alternates": [
               "three",
-              "step 3"
+              "step 3",
+              "mix the fizzy ingredients in a bowl",
+              "mix the fizzy ingredients",
+              "mix the ingredients"
             ],
             "hint": "You must make the potion before you can zap it or pour it."
           }
@@ -607,7 +612,10 @@
             "answer": "3",
             "alternates": [
               "three",
-              "step 3"
+              "step 3",
+              "put on safety goggles",
+              "put on goggles",
+              "safety goggles"
             ],
             "hint": "Look for the step that keeps Stitch's eyes safe."
           },
@@ -862,7 +870,10 @@
             "answer": "4",
             "alternates": [
               "four",
-              "step 4"
+              "step 4",
+              "pick up an empty jar",
+              "pick up the empty jar",
+              "pick up empty jar"
             ],
             "hint": "You cannot pour goo into a jar until you have one in your hands."
           },
