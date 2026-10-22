@@ -54,6 +54,9 @@ expect("redacts a trivia answer but leaves the word 'a' alone", t.includes(" a c
 const scary = structuredClone(SAMPLE_HOUSE);
 scary.rooms[1].description = "Blood drips from the walls.";
 expect("rejects content that isn't kid-friendly", validateHouse(scary).some((p) => p.includes("kid-friendly")));
+const longClue = structuredClone(SAMPLE_HOUSE);
+longClue.rooms[0].puzzles[0].clue = "A long maze clue. ".repeat(40);
+expect("flags a clue too long to show whole (so it gets repaired, not cut off)", validateHouse(longClue).some((p) => p.startsWith("room 1 puzzle 1 clue is too long")));
 
 // Surprise mix planner
 let planOk = true;

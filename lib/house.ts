@@ -54,6 +54,9 @@ export function planOf(house: House): RoomPlan[] {
  * With no plan, checks the house's own types are valid for each monster and never repeat.
  * Returns a list of problems (empty = OK).
  */
+/** Longest clue a puzzle may have. A 3×3 maze with directions needs about 400 characters. */
+export const CLUE_MAX = 500;
+
 export function validateHouse(h: unknown, plan?: RoomPlan[]): string[] {
   const p: string[] = [];
   const house = h as Partial<House> | null;
@@ -91,6 +94,8 @@ export function validateHouse(h: unknown, plan?: RoomPlan[]): string[] {
       const where = `${n} puzzle ${j + 1}`;
       const text = `${z?.clue} ${z?.question}`;
       if (!z?.clue || !z?.question) p.push(`${where} is missing its clue or question`);
+      // Flagged here so repair can shorten it; cleanHouse would otherwise cut it off mid-sentence.
+      if (String(z?.clue ?? "").length > CLUE_MAX) p.push(`${where} clue is too long (${String(z.clue).length} characters, max ${CLUE_MAX})`);
       if (!/^[a-z0-9]{1,12}$/.test(a)) p.push(`${where} answer isn't a short word or number`);
       if (isTrivia(type)) {
         // Trivia is multiple choice, so the answer must be one of the listed choices.
@@ -130,7 +135,7 @@ export function cleanRoom(r: Room): Room {
     puzzles: (r.puzzles || []).slice(0, 4).map((z) => ({
       type: canonType(z.type) || S(z.type, 24),
       title: S(z.title, 50),
-      clue: S(z.clue, 300),
+      clue: S(z.clue, CLUE_MAX),
       question: S(z.question, 200),
       answer: S(z.answer, 24),
       alternates: (z.alternates || []).slice(0, 5).map((a) => S(a, 20)),

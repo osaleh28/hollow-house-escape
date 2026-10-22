@@ -961,7 +961,7 @@
           {
             "type": "Maze directions",
             "title": "Through the Corn Maze",
-            "clue": "The maze is a 3 by 3 grid, and you are looking down at it from above. 'Up' means toward the top row, and 'right' means toward the right side. Top row, left to right: Hay Bale, Pumpkin Patch, Old Well. Middle row, left to right: Crow Nest, Scarecrow Post, Windmill. Bottom row, left to right: Gate, Ba",
+            "clue": "The maze is a 3 by 3 grid, and you are looking down at it from above. 'Up' means toward the top row, and 'right' means toward the right side. Top row, left to right: Hay Bale, Pumpkin Patch, Old Well. Middle row, left to right: Crow Nest, Scarecrow Post, Windmill. Bottom row, left to right: Gate, Barn, Pond. You start at the Gate. Go right 2 squares, then up 2 squares.",
             "question": "Which place do you end up at?",
             "answer": "Old Well",
             "alternates": [
