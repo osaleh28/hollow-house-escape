@@ -11,6 +11,11 @@ export const runtime = "nodejs";
 export const maxDuration = 300; // generation + checks + a possible repair
 
 export async function POST(req: Request) {
+  // Off unless ENABLE_HOUSE_API=true. The game doesn't use this route (houses come from the prebuilt library),
+  // and each call costs ~5¢, so on a public deploy it would only be a way for strangers to spend the API budget.
+  if (process.env.ENABLE_HOUSE_API !== "true")
+    return json({ ok: false, code: "disabled", message: "Building new houses is turned off on this server." }, 404);
+
   const body = (await req.json().catch(() => null)) as { age?: string; idea?: string } | null;
   const age: AgeLevel = AGE_LEVELS.includes(body?.age as AgeLevel) ? (body!.age as AgeLevel) : "8-10";
   const idea = cleanInput(body?.idea, INPUT_LIMITS.ideaChars);

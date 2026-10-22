@@ -117,6 +117,7 @@ The AI tester (`SYSTEM_SOLVER`) and repair (`SYSTEM_REPAIR`) prompts are also in
 - **Right-sized models:** Sonnet 5.5 for house generation, the much cheaper Haiku 5.5 for chat.
 - **Per-visitor limits:** 5 new houses and 60 helper questions per day, and 5 questions per room.
 - **Free when blocked:** guardrail blocks happen before the API call.
+- **Unused AI routes are off:** the live house builder (`/api/house`) answers "turned off" unless `ENABLE_HOUSE_API=true`, so a public deploy only exposes the cheap helper.
 - **Graceful when the cap is hit:** the AI buttons stop, and the game keeps working.
 - **Live numbers:** open `http://localhost:3000/api/usage` to see today's spend against the cap, tokens used, and calls by type.
 
@@ -214,7 +215,7 @@ Scripts need **Node 22.9 or newer**.
 app/
   page.tsx               → renders the game
   layout.tsx, globals.css
-  api/house/route.ts     → POST: build a new house live (not used by the game; the library is built ahead of time)
+  api/house/route.ts     → POST: build a new house live. Off unless ENABLE_HOUSE_API=true (the game uses the prebuilt library)
   api/helper/route.ts    → POST: helper chat reply
   api/usage/route.ts     → GET: today's spend vs. cap
 components/
