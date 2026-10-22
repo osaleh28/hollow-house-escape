@@ -280,6 +280,13 @@ export default function Game() {
         })}
       </nav>
 
+      <section className="panel mystery" aria-label="The mystery">
+        <h3 className="ph">The mystery</h3>
+        <p className="premise">{house.premise}</p>
+        <p className="small">How to play: solve all 4 puzzles in a room to unlock the door to the next one. Stuck? Ask the helper or peek at a hint.</p>
+        <button className="btn soft" onClick={restart}>Start this house over</button>
+      </section>
+
       <section className="conjure" aria-label="Make a new house">
         <div className="field">
           <label htmlFor="age">Puzzle level</label>
@@ -348,11 +355,6 @@ export default function Game() {
               <button className="btn room" type="submit" disabled={asking || askedHere >= HELPER_PER_ROOM || !aiReady}>Ask</button>
             </form>
             <p className="small">{HELPER_PER_ROOM - askedHere} of {HELPER_PER_ROOM} questions left in this room</p>
-          </aside>
-          <aside className="panel">
-            <h3 className="ph">The mystery</h3>
-            <p className="premise">{house.premise}</p>
-            <button className="btn soft" onClick={restart}>Start this house over</button>
           </aside>
         </div>
       </div>
