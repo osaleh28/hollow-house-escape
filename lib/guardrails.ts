@@ -61,6 +61,26 @@ export function checkInput(text: string, where: Where): InputCheck {
   return { block: false };
 }
 
+export type ChatLine = { who: "you" | "helper"; text: string };
+export const HISTORY_MAX = 6; // the last 3 questions and replies
+
+/**
+ * Cleans the earlier chat the browser sends with a question, so the helper knows what "I'm still stuck" means.
+ * The browser can be tampered with, so this is untrusted: only the last few lines are kept, each is
+ * length-capped with tags removed, and player lines that fail the input guardrail are dropped.
+ */
+export function cleanHistory(raw: unknown): ChatLine[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .slice(-HISTORY_MAX)
+    .map((m) => {
+      const who = (m as ChatLine)?.who === "helper" ? "helper" : "you";
+      const max = who === "you" ? INPUT_LIMITS.questionChars : INPUT_LIMITS.helperReplyChars;
+      return { who, text: cleanInput((m as ChatLine)?.text, max).replace(/[<>]/g, "") } as ChatLine;
+    })
+    .filter((m) => m.text && !(m.who === "you" && checkInput(m.text, "helper").block));
+}
+
 /** Output guardrail for helper replies: hides any answer, replaces unsafe replies, trims length. */
 export function guardHelperReply(text: string, room: Room): { text: string; flag: string | null } {
   let t = String(text || "").replace(/\s+/g, " ").trim();

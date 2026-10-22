@@ -35,7 +35,7 @@ export const LIMITS = {
   houseMaxTokens: 6000, // a full house is ~2,900-4,500 output tokens
   helperMaxTokens: 120, // 1-2 sentences
   houseInputEstimate: 3500, // system prompt + room plan + tool schema
-  helperInputEstimate: 900,
+  helperInputEstimate: 1300, // room + puzzles + up to 6 earlier chat lines
   solverMaxTokens: 1500, // 12 short answers
   solverInputEstimate: 3000,
   repairMaxTokens: 3000, // only the broken puzzles are rewritten

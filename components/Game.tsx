@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { CandyIcon, ThemeIcon } from "./Icons.tsx";
-import { checkInput, cleanInput, INPUT_LIMITS } from "@/lib/guardrails.ts";
+import { checkInput, cleanInput, HISTORY_MAX, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { isCorrect, SAMPLE_HOUSE, type House, type Puzzle } from "@/lib/house.ts";
 import { HOUSES } from "@/lib/library.ts";
 import { THEMES, type Theme } from "@/lib/themes.ts";
@@ -170,6 +170,11 @@ export default function Game() {
           solved: room.puzzles.map((_, p) => (g.solved[key(ri, p)] ? p : -1)).filter((p) => p >= 0),
           question: q,
           askedInRoom: askedHere,
+          // This room's recent chat, so "I'm still stuck" is understood (the server re-checks it).
+          history: chat
+            .filter((m) => m.room === ri && m.who !== "sys")
+            .slice(-HISTORY_MAX)
+            .map(({ who, text }) => ({ who, text })),
         }),
         signal: AbortSignal.timeout(HELPER_WAIT_MS),
       });

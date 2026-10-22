@@ -3,7 +3,7 @@
 
 import { anthropic, aiError, json, noKey, visitorId } from "@/lib/ai.ts";
 import { CALL_LIMITS, LIMITS, MODELS, noThinking, record, reserve, snapshot } from "@/lib/cost.ts";
-import { checkInput, cleanInput, guardHelperReply, INPUT_LIMITS } from "@/lib/guardrails.ts";
+import { checkInput, cleanHistory, cleanInput, guardHelperReply, INPUT_LIMITS } from "@/lib/guardrails.ts";
 import { cleanRoom, type Room } from "@/lib/house.ts";
 import { helperContext, SYSTEM_HELPER } from "@/lib/prompts.ts";
 
@@ -15,7 +15,7 @@ const MAX_BODY_BYTES = 12_000; // a room is ~3 KB; anything much bigger is not a
 export async function POST(req: Request) {
   const raw = await req.text();
   if (raw.length > MAX_BODY_BYTES) return json({ ok: false, code: "too_large", message: "That request was too big." }, 413);
-  let body: { room?: Room; solved?: number[]; question?: string; askedInRoom?: number };
+  let body: { room?: Room; solved?: number[]; question?: string; askedInRoom?: number; history?: unknown };
   try {
     body = JSON.parse(raw);
   } catch {
@@ -27,6 +27,7 @@ export async function POST(req: Request) {
   const room = cleanRoom(body.room);
   const solved = (Array.isArray(body.solved) ? body.solved : []).filter((n) => Number.isInteger(n) && n >= 0 && n < 4);
   const question = cleanInput(body.question, INPUT_LIMITS.questionChars);
+  const history = cleanHistory(body.history); // untrusted: re-checked so "I'm still stuck" has context
   if (!question) return json({ ok: false, code: "empty", message: "Type a question first!" }, 400);
 
   // 1. Input guardrail.
@@ -52,7 +53,7 @@ export async function POST(req: Request) {
         max_tokens: LIMITS.helperMaxTokens,
         system: SYSTEM_HELPER,
         thinking: noThinking(MODELS.helper), // thinking could use up the tiny token limit and cut the reply off
-        messages: [{ role: "user", content: helperContext(room, solved, question) }],
+        messages: [{ role: "user", content: helperContext(room, solved, question, history) }],
       },
       CALL_LIMITS.helper, // short timeout: a slow hint gets a spooky "sorry", not a long wait
     );
